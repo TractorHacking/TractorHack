@@ -1,0 +1,13 @@
+reactNativeVersion/tk/node_modules/**/*
+reactNativeVersion/tk/.expo/*
+reactNativeVersion/tk/npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
