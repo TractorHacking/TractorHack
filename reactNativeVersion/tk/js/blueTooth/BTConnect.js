@@ -7,18 +7,14 @@ class BTConnect extends React.Component {
   constructor(props) {
     super(props);
     
-    // 0 not tryed yet
-    // 1 success
-    // 2 falure
-    
     this.state = {
-       connectedStat : 0,
+       connectedStat : 'notTryed',
        tractorList : [{title : "no tractors"}]
     }
   }
   
   safeChangeAppState = (newState, cStat) => {
-    if(this.state.connectedStat != 1) {
+    if(this.state.connectedStat != 'success') {
       this.setState({connectedStat : cStat});
       this.props.changeAppState(newState);
     }
@@ -29,11 +25,11 @@ class BTConnect extends React.Component {
     this.setState({tractorList : [
       {
         title : "Tractor 1",
-        onPress : () => {this.safeChangeAppState(2, 1)}
+        onPress : () => {this.safeChangeAppState('connected', 'success')}
       },
       {
         title : "Tractor 2",
-        onPress : () => {this.setState({connectedStat : 2})}
+        onPress : () => {this.setState({connectedStat : 'failure'})}
       }
     ]});
     
@@ -61,14 +57,19 @@ class BTConnect extends React.Component {
   render() {
     
     switch (this.state.connectedStat) {
-      case 0 :
+      case 'notTryed' :
         return (
           this.buttonMaker(this.state.tractorList)
         );
         break;
-      case 2 :
+      case 'failure' :
         return (
-          <Text> Failed To Connect </Text>
+          <Text>
+            <Button title = "Disconnect"
+              onPress = {() => {this.props.changeAppState('splash')}}
+            />
+            <Text> Failed To Connect </Text>
+          </Text>
         );
         break;
     }

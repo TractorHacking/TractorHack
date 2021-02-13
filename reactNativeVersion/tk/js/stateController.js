@@ -1,12 +1,14 @@
 import React from 'react';
 import {Button, Text} from 'react-native';
 import BTConnect from './blueTooth/BTConnect.js';
+import ConnectedRoot from './ConnectedRoot.js';
+import LiveDiag from './LiveDiag.js';
 
 class StateController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      appState : 0
+      appState : 'splash'
     }
   }
   
@@ -16,16 +18,26 @@ class StateController extends React.Component {
   
   render() {
     switch (this.state.appState) {
-      case 0 :
+      case 'splash' :
         return (
           <Button title = "Connect" 
-                  onPress = {() => {this.changeAppState(1)}}
+                  onPress = {() => {this.changeAppState('bluetooth')}}
           />
         );
         break;
-      case 1 :
+      case 'bluetooth' :
         return (
           <BTConnect changeAppState = {this.changeAppState} />
+        );
+        break;
+      case 'connected' :
+        return (
+          <ConnectedRoot changeAppState = {this.changeAppState} />
+        );
+        break;
+      case 'live' :
+        return (
+          <LiveDiag changeAppState = {this.changeAppState} />
         );
         break;
     };
