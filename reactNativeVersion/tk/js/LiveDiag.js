@@ -1,51 +1,125 @@
 import React from 'react';
-import {Button, Text, View, Image, StyleSheet} from 'react-native';
+import {Button, Text, View, Image} from 'react-native';
 import tractorImg from '../assets/bluetractor.png';
+import styles from './Styles.js';
+import DiagFormatter from './DiagFormatter';
 
 class LiveDiag extends React.Component {
   constructor(props) {
     super(props);
-    this.LiveStyles = StyleSheet.create({
-      orange: {
-        color: 'orange'
-      },
-      imgProp : {
-        width : 151, 
-        height : 77
-      }
-    });
+    this.state = {
+      data : []
+    }
+  }
+  
+  componentDidMount() {
+    this.updateData();
   }
   
   tractor() {
     return (
       <Image
         source = {{uri : tractorImg}}
-        style = {this.LiveStyles.imgProp}
+        style = {styles.imgProp}
       />
     );
   }
   
-  general() {
-
+  fetchData() {
+    let x =
+      {
+        vehicleSpeed : "0",
+        engineTemp : "195",
+        fuel : "45",
+        oilLevel : "87",
+        rpm : "540",
+        exhaustTemp : "145",
+        load : "90",
+        armPosition : "up",
+        trailerPosition : "20",
+        wheelRotation : "Locked",
+        spray1 : "Off"
+      };
     
-    return (
-      <View>
-        <Text style = {this.LiveStyles.orange}> General </Text>
-      </View>
-    )
+    return x;
+  }
+  
+  updateData() {
+    let received = this.fetchData();
+    
+    this.setState({
+      data : [
+        {
+          catTitle : "General",
+          group : [
+            {
+              title : "Vehicle Speed", 
+              value : received.vehicleSpeed
+            },
+            {
+              title : "Engine Temp",
+              value : received.engineTemp
+            },
+            {
+              title : "Fuel Level",
+              value : received.fuel
+            }
+          ]
+        },
+        {
+          catTitle : "Engine",
+          group : [
+            {
+              title : "Oil Level",
+              value : received.oilLevel
+            }, 
+            {
+              title : "RPM",
+              value : received.rpm
+            },
+            {
+              title : "Exhaust Temp",
+              value : received.exhaustTemp
+            },
+            {
+              title : "Load",
+              value : received.load
+            }
+          ]
+        },
+        {
+          catTitle : "Controls",
+          group : [
+            {
+              title : "Arm Position",
+              value : received.armPosition
+            },
+            {
+              title : "Trailer Position",
+              value : received.trailerPosition
+            }, 
+            {
+              title : "Wheel Rotation",
+              value : received.wheelRotation
+            },
+            {            
+              title : "Spray 1",
+              value : received.spray1
+            }
+          ]
+        }
+      ]
+    });
   }
   
   render() {
     return (
       <View>
-      {this.tractor()}
-      {this.general()}
-        <Text>
+        {this.tractor()}
         <Button title = "Disconnect"
                 onPress = {() => {this.props.changeAppState('splash')}}
         />
-        <Text> Live Diag Data Here...</Text>
-        </Text>
+        <DiagFormatter data = {this.state.data} />
       </View>
     );
   }

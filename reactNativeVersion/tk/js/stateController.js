@@ -4,6 +4,7 @@ import BTConnect from './blueTooth/BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
 import logo from '../assets/logo.png';
+import styles from './Styles.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class StateController extends React.Component {
           <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
           <Image
             source = {{uri : logo}}
-            style = {{width : 175, height : 117}}
+            style = {styles.splashImg}
           />
           <Button title = "Connect" 
                   onPress = {() => {this.changeAppState('bluetooth')}}
