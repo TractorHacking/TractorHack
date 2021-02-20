@@ -28,28 +28,39 @@ function renderApplication(RootComponent, WrapperComponent, callback, options) {
       rootTag = options.rootTag;
   var renderFn = shouldHydrate ? _render.hydrate : _render.default;
   (0, _invariant.default)(rootTag, 'Expect to have a valid rootTag, instead got ', rootTag);
-  renderFn(_react.default.createElement(_AppContainer.default, {
-    rootTag: rootTag,
-    WrapperComponent: WrapperComponent
-  }, _react.default.createElement(RootComponent, initialProps)), rootTag, callback);
+  renderFn(
+  /*#__PURE__*/
+  _react.default.createElement(_AppContainer.default, {
+    WrapperComponent: WrapperComponent,
+    rootTag: rootTag
+  },
+  /*#__PURE__*/
+  _react.default.createElement(RootComponent, initialProps)), rootTag, callback);
 }
 
 function getApplication(RootComponent, initialProps, WrapperComponent) {
-  var element = _react.default.createElement(_AppContainer.default, {
-    rootTag: {},
-    WrapperComponent: WrapperComponent
-  }, _react.default.createElement(RootComponent, initialProps)); // Don't escape CSS text
+  var element =
+  /*#__PURE__*/
+  _react.default.createElement(_AppContainer.default, {
+    WrapperComponent: WrapperComponent,
+    rootTag: {}
+  },
+  /*#__PURE__*/
+  _react.default.createElement(RootComponent, initialProps)); // Don't escape CSS text
 
 
   var getStyleElement = function getStyleElement(props) {
     var sheet = _styleResolver.default.getStyleSheet();
 
-    return _react.default.createElement("style", _extends({}, props, {
-      dangerouslySetInnerHTML: {
-        __html: sheet.textContent
-      },
-      id: sheet.id
-    }));
+    return (
+      /*#__PURE__*/
+      _react.default.createElement("style", _extends({}, props, {
+        dangerouslySetInnerHTML: {
+          __html: sheet.textContent
+        },
+        id: sheet.id
+      }))
+    );
   };
 
   return {

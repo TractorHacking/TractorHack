@@ -1,4 +1,6 @@
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -29,9 +31,12 @@ function (_React$Component) {
   };
 
   _proto.render = function render() {
-    return React.createElement(View, {
-      style: [unimplementedViewStyles, this.props.style]
-    }, this.props.children);
+    return (
+      /*#__PURE__*/
+      React.createElement(View, {
+        style: [unimplementedViewStyles, this.props.style]
+      }, this.props.children)
+    );
   };
 
   return UnimplementedView;

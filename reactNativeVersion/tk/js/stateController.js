@@ -3,6 +3,7 @@ import {Button, Text} from 'react-native';
 import BTConnect from './blueTooth/BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
+import History from './History.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -39,6 +40,11 @@ class StateController extends React.Component {
         return (
           <LiveDiag changeAppState = {this.changeAppState} />
         );
+        break;
+      case 'history' :
+        return (
+          <History changeAppState = {this.changeAppState} />
+        )
         break;
     };
   }

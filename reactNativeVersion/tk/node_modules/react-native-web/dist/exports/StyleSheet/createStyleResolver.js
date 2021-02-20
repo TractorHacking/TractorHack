@@ -65,8 +65,10 @@ export default function createStyleResolver() {
   }
 
   function _injectRegisteredStyle(id) {
-    var doLeftAndRightSwapInRTL = I18nManager.doLeftAndRightSwapInRTL,
-        isRTL = I18nManager.isRTL;
+    var _I18nManager$getConst = I18nManager.getConstants(),
+        doLeftAndRightSwapInRTL = _I18nManager$getConst.doLeftAndRightSwapInRTL,
+        isRTL = _I18nManager$getConst.isRTL;
+
     var dir = isRTL ? doLeftAndRightSwapInRTL ? 'rtl' : 'rtlNoSwap' : 'ltr';
 
     if (!inserted[dir][id]) {
@@ -170,8 +172,10 @@ export default function createStyleResolver() {
 
 
   function _resolveStyle(style, key) {
-    var doLeftAndRightSwapInRTL = I18nManager.doLeftAndRightSwapInRTL,
-        isRTL = I18nManager.isRTL;
+    var _I18nManager$getConst2 = I18nManager.getConstants(),
+        doLeftAndRightSwapInRTL = _I18nManager$getConst2.doLeftAndRightSwapInRTL,
+        isRTL = _I18nManager$getConst2.isRTL;
+
     var dir = isRTL ? doLeftAndRightSwapInRTL ? 'rtl' : 'rtlNoSwap' : 'ltr'; // faster: memoized
 
     if (key != null && resolved[dir][key] != null) {
@@ -265,7 +269,11 @@ export default function createStyleResolver() {
       return result;
     },
     resolve: resolve,
-    sheet: sheet
+
+    get sheet() {
+      return sheet;
+    }
+
   };
 }
 /**

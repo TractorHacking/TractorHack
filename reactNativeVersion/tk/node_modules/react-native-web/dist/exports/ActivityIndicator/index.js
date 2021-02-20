@@ -20,17 +20,22 @@ var accessibilityValue = {
 };
 
 var createSvgCircle = function createSvgCircle(style) {
-  return React.createElement("circle", {
-    cx: "16",
-    cy: "16",
-    fill: "none",
-    r: "14",
-    strokeWidth: "4",
-    style: style
-  });
+  return (
+    /*#__PURE__*/
+    React.createElement("circle", {
+      cx: "16",
+      cy: "16",
+      fill: "none",
+      r: "14",
+      strokeWidth: "4",
+      style: style
+    })
+  );
 };
 
-var ActivityIndicator = forwardRef(function (props, forwardedRef) {
+var ActivityIndicator =
+/*#__PURE__*/
+forwardRef(function (props, forwardedRef) {
   var _props$animating = props.animating,
       animating = _props$animating === void 0 ? true : _props$animating,
       _props$color = props.color,
@@ -42,7 +47,9 @@ var ActivityIndicator = forwardRef(function (props, forwardedRef) {
       style = props.style,
       other = _objectWithoutPropertiesLoose(props, ["animating", "color", "hidesWhenStopped", "size", "style"]);
 
-  var svg = React.createElement("svg", {
+  var svg =
+  /*#__PURE__*/
+  React.createElement("svg", {
     height: "100%",
     viewBox: "0 0 32 32",
     width: "100%"
@@ -54,18 +61,23 @@ var ActivityIndicator = forwardRef(function (props, forwardedRef) {
     strokeDasharray: 80,
     strokeDashoffset: 60
   }));
-  return React.createElement(View, _extends({}, other, {
-    accessibilityRole: "progressbar",
-    accessibilityValue: accessibilityValue,
-    ref: forwardedRef,
-    style: [styles.container, style]
-  }), React.createElement(View, {
-    children: svg,
-    style: [typeof size === 'number' ? {
-      height: size,
-      width: size
-    } : indicatorSizes[size], styles.animation, !animating && styles.animationPause, !animating && hidesWhenStopped && styles.hidesWhenStopped]
-  }));
+  return (
+    /*#__PURE__*/
+    React.createElement(View, _extends({}, other, {
+      accessibilityRole: "progressbar",
+      accessibilityValue: accessibilityValue,
+      ref: forwardedRef,
+      style: [styles.container, style]
+    }),
+    /*#__PURE__*/
+    React.createElement(View, {
+      children: svg,
+      style: [typeof size === 'number' ? {
+        height: size,
+        width: size
+      } : indicatorSizes[size], styles.animation, !animating && styles.animationPause, !animating && hidesWhenStopped && styles.hidesWhenStopped]
+    }))
+  );
 });
 ActivityIndicator.displayName = 'ActivityIndicator';
 var styles = StyleSheet.create({

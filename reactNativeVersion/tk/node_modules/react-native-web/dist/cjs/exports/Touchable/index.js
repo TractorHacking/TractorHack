@@ -167,7 +167,7 @@ var baseStatesConditions = {
   ERROR: false
 };
 
-var IsActive = _objectSpread({}, baseStatesConditions, {
+var IsActive = _objectSpread(_objectSpread({}, baseStatesConditions), {}, {
   RESPONDER_ACTIVE_PRESS_OUT: true,
   RESPONDER_ACTIVE_PRESS_IN: true
 });
@@ -177,13 +177,13 @@ var IsActive = _objectSpread({}, baseStatesConditions, {
  */
 
 
-var IsPressingIn = _objectSpread({}, baseStatesConditions, {
+var IsPressingIn = _objectSpread(_objectSpread({}, baseStatesConditions), {}, {
   RESPONDER_INACTIVE_PRESS_IN: true,
   RESPONDER_ACTIVE_PRESS_IN: true,
   RESPONDER_ACTIVE_LONG_PRESS_IN: true
 });
 
-var IsLongPressingIn = _objectSpread({}, baseStatesConditions, {
+var IsLongPressingIn = _objectSpread(_objectSpread({}, baseStatesConditions), {}, {
   RESPONDER_ACTIVE_LONG_PRESS_IN: true
 });
 /**
@@ -898,17 +898,20 @@ var Touchable = {
     }
 
     var hexColor = '#' + ('00000000' + normalizedColor.toString(16)).substr(-8);
-    return _react.default.createElement(_View.default, {
-      pointerEvents: "none",
-      style: _objectSpread({
-        position: 'absolute',
-        borderColor: hexColor.slice(0, -2) + '55',
-        // More opaque
-        borderWidth: 1,
-        borderStyle: 'dashed',
-        backgroundColor: hexColor.slice(0, -2) + '0F'
-      }, debugHitSlopStyle)
-    });
+    return (
+      /*#__PURE__*/
+      _react.default.createElement(_View.default, {
+        pointerEvents: "none",
+        style: _objectSpread({
+          position: 'absolute',
+          borderColor: hexColor.slice(0, -2) + '55',
+          // More opaque
+          borderWidth: 1,
+          borderStyle: 'dashed',
+          backgroundColor: hexColor.slice(0, -2) + '0F'
+        }, debugHitSlopStyle)
+      })
+    );
   }
 };
 var _default = Touchable;

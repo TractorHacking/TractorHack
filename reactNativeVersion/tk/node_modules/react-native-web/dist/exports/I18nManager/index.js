@@ -38,21 +38,18 @@ var I18nManager = {
     isRTLForced = bool;
     onDirectionChange();
   },
+  getConstants: function getConstants() {
+    return {
+      doLeftAndRightSwapInRTL: doLeftAndRightSwapInRTL,
+      isRTL: isRTL()
+    };
+  },
   setPreferredLanguageRTL: function setPreferredLanguageRTL(bool) {
     isPreferredLanguageRTL = bool;
     onDirectionChange();
   },
   swapLeftAndRightInRTL: function swapLeftAndRightInRTL(bool) {
     doLeftAndRightSwapInRTL = bool;
-  },
-
-  get doLeftAndRightSwapInRTL() {
-    return doLeftAndRightSwapInRTL;
-  },
-
-  get isRTL() {
-    return isRTL();
   }
-
 };
 export default I18nManager;

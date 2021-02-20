@@ -12,6 +12,7 @@
 import EventEmitter from './EventEmitter';
 import EventEmitterWithHolding from './EventEmitterWithHolding';
 import EventHolder from './EventHolder';
+import EventValidator from './EventValidator';
 import invariant from 'fbjs/lib/invariant';
 import keyOf from 'fbjs/lib/keyOf';
 
@@ -103,8 +104,6 @@ var EventEmitterMixin = {
       var emitter = new EventEmitter();
 
       if (__DEV__) {
-        var EventValidator = require('./EventValidator').default;
-
         emitter = EventValidator.addValidation(emitter, this.__types);
       }
 

@@ -24,13 +24,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * 
  */
-var RootTagContext = (0, _react.createContext)(null);
+var RootTagContext =
+/*#__PURE__*/
+(0, _react.createContext)(null);
 
 function AppContainer(props) {
   var children = props.children,
       WrapperComponent = props.WrapperComponent;
 
-  var innerView = _react.default.createElement(_View.default, {
+  var innerView =
+  /*#__PURE__*/
+  _react.default.createElement(_View.default, {
     children: children,
     key: 1,
     pointerEvents: "box-none",
@@ -38,15 +42,22 @@ function AppContainer(props) {
   });
 
   if (WrapperComponent) {
-    innerView = _react.default.createElement(WrapperComponent, null, innerView);
+    innerView =
+    /*#__PURE__*/
+    _react.default.createElement(WrapperComponent, null, innerView);
   }
 
-  return _react.default.createElement(RootTagContext.Provider, {
-    value: props.rootTag
-  }, _react.default.createElement(_View.default, {
-    pointerEvents: "box-none",
-    style: styles.appContainer
-  }, innerView));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(RootTagContext.Provider, {
+      value: props.rootTag
+    },
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, {
+      pointerEvents: "box-none",
+      style: styles.appContainer
+    }, innerView))
+  );
 }
 
 var styles = _StyleSheet.default.create({

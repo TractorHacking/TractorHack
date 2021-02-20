@@ -7,5 +7,7 @@
  * 
  */
 import { createContext } from 'react';
-var TextAncestorContext = createContext(false);
+var TextAncestorContext =
+/*#__PURE__*/
+createContext(false);
 export default TextAncestorContext;

@@ -18,6 +18,10 @@ class ConnectedRoot extends React.Component {
         <Button title = "Live Diag Data"
                 onPress = {() => {this.props.changeAppState('live')}}
         />
+        <Text> </Text>
+        <Button title = "History"
+                onPress = {() => {this.props.changeAppState('history')}}
+        />
       </Text>
     );
   }

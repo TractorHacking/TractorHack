@@ -149,15 +149,20 @@ var ScrollView = (0, _createReactClass.default)({
       var isSticky = hasStickyHeaderIndices && stickyHeaderIndices.indexOf(i) > -1;
 
       if (child != null && (isSticky || pagingEnabled)) {
-        return _react.default.createElement(_View.default, {
-          style: _StyleSheet.default.compose(isSticky && styles.stickyHeader, pagingEnabled && styles.pagingEnabledChild)
-        }, child);
+        return (
+          /*#__PURE__*/
+          _react.default.createElement(_View.default, {
+            style: _StyleSheet.default.compose(isSticky && styles.stickyHeader, pagingEnabled && styles.pagingEnabledChild)
+          }, child)
+        );
       } else {
         return child;
       }
     }) : this.props.children;
 
-    var contentContainer = _react.default.createElement(_View.default, _extends({}, contentSizeChangeProps, {
+    var contentContainer =
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, _extends({}, contentSizeChangeProps, {
       children: children,
       collapsable: false,
       ref: this._setInnerViewRef,
@@ -167,7 +172,7 @@ var ScrollView = (0, _createReactClass.default)({
     var baseStyle = horizontal ? styles.baseHorizontal : styles.baseVertical;
     var pagingEnabledStyle = horizontal ? styles.pagingEnabledHorizontal : styles.pagingEnabledVertical;
 
-    var props = _objectSpread({}, other, {
+    var props = _objectSpread(_objectSpread({}, other), {}, {
       style: [baseStyle, pagingEnabled && pagingEnabledStyle, this.props.style],
       onTouchStart: this.scrollResponderHandleTouchStart,
       onTouchMove: this.scrollResponderHandleTouchMove,
@@ -191,17 +196,25 @@ var ScrollView = (0, _createReactClass.default)({
     (0, _invariant.default)(ScrollViewClass !== undefined, 'ScrollViewClass must not be undefined');
 
     if (refreshControl) {
-      return _react.default.cloneElement(refreshControl, {
-        style: props.style
-      }, _react.default.createElement(ScrollViewClass, _extends({}, props, {
-        ref: this._setScrollNodeRef,
-        style: baseStyle
-      }), contentContainer));
+      return (
+        /*#__PURE__*/
+        _react.default.cloneElement(refreshControl, {
+          style: props.style
+        },
+        /*#__PURE__*/
+        _react.default.createElement(ScrollViewClass, _extends({}, props, {
+          ref: this._setScrollNodeRef,
+          style: baseStyle
+        }), contentContainer))
+      );
     }
 
-    return _react.default.createElement(ScrollViewClass, _extends({}, props, {
-      ref: this._setScrollNodeRef
-    }), contentContainer);
+    return (
+      /*#__PURE__*/
+      _react.default.createElement(ScrollViewClass, _extends({}, props, {
+        ref: this._setScrollNodeRef
+      }), contentContainer)
+    );
   },
   _handleContentOnLayout: function _handleContentOnLayout(e) {
     var _e$nativeEvent$layout = e.nativeEvent.layout,
@@ -243,12 +256,12 @@ var commonStyle = {
 };
 
 var styles = _StyleSheet.default.create({
-  baseVertical: _objectSpread({}, commonStyle, {
+  baseVertical: _objectSpread(_objectSpread({}, commonStyle), {}, {
     flexDirection: 'column',
     overflowX: 'hidden',
     overflowY: 'auto'
   }),
-  baseHorizontal: _objectSpread({}, commonStyle, {
+  baseHorizontal: _objectSpread(_objectSpread({}, commonStyle), {}, {
     flexDirection: 'row',
     overflowX: 'auto',
     overflowY: 'hidden'

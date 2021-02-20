@@ -19,7 +19,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-var ProgressBar = (0, _react.forwardRef)(function (props, ref) {
+var ProgressBar =
+/*#__PURE__*/
+(0, _react.forwardRef)(function (props, ref) {
   var _props$color = props.color,
       color = _props$color === void 0 ? '#1976D2' : _props$color,
       _props$indeterminate = props.indeterminate,
@@ -44,23 +46,28 @@ var ProgressBar = (0, _react.forwardRef)(function (props, ref) {
       });
     }
   }, [indeterminate, percentageProgress, progressRef]);
-  return _react.default.createElement(_View.default, _extends({}, other, {
-    accessibilityRole: "progressbar",
-    accessibilityValue: {
-      max: 100,
-      min: 0,
-      now: indeterminate ? null : percentageProgress
-    },
-    ref: ref,
-    style: [styles.track, style, {
-      backgroundColor: trackColor
-    }]
-  }), _react.default.createElement(_View.default, {
-    ref: progressRef,
-    style: [styles.progress, indeterminate && styles.animation, {
-      backgroundColor: color
-    }]
-  }));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, _extends({}, other, {
+      accessibilityRole: "progressbar",
+      accessibilityValue: {
+        max: 100,
+        min: 0,
+        now: indeterminate ? null : percentageProgress
+      },
+      ref: ref,
+      style: [styles.track, style, {
+        backgroundColor: trackColor
+      }]
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, {
+      ref: progressRef,
+      style: [styles.progress, indeterminate && styles.animation, {
+        backgroundColor: color
+      }]
+    }))
+  );
 });
 ProgressBar.displayName = 'ProgressBar';
 

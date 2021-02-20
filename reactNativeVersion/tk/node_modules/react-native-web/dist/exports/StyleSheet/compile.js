@@ -93,7 +93,7 @@ export function classic(style, name) {
     rules.push.apply(rules, keyframesRules);
   }
 
-  var block = createDeclarationBlock(_objectSpread({}, rest, {
+  var block = createDeclarationBlock(_objectSpread(_objectSpread({}, rest), {}, {
     animationName: animationName
   }));
   rules.push("" + selector + block);

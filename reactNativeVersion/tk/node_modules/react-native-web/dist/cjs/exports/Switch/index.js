@@ -32,7 +32,9 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 var emptyObject = {};
 var thumbDefaultBoxShadow = '0px 1px 3px rgba(0,0,0,0.5)';
 var thumbFocusedBoxShadow = thumbDefaultBoxShadow + ", 0 0 0 10px rgba(0,0,0,0.1)";
-var Switch = (0, React.forwardRef)(function (props, forwardedRef) {
+var Switch =
+/*#__PURE__*/
+(0, React.forwardRef)(function (props, forwardedRef) {
   var accessibilityLabel = props.accessibilityLabel,
       _props$activeThumbCol = props.activeThumbColor,
       activeThumbColor = _props$activeThumbCol === void 0 ? '#009688' : _props$activeThumbCol,
@@ -72,7 +74,7 @@ var Switch = (0, React.forwardRef)(function (props, forwardedRef) {
       styleHeight = _StyleSheet$flatten.height,
       styleWidth = _StyleSheet$flatten.width;
 
-  var height = styleHeight || 20;
+  var height = styleHeight || '20px';
   var minWidth = (0, _multiplyStyleLengthValue.default)(height, 2);
   var width = styleWidth > minWidth ? styleWidth : minWidth;
   var trackBorderRadius = (0, _multiplyStyleLengthValue.default)(height, 0.5);
@@ -119,16 +121,24 @@ var Switch = (0, React.forwardRef)(function (props, forwardedRef) {
     onFocus: handleFocusState,
     ref: forwardedRef,
     style: [styles.nativeControl, styles.cursorInherit],
-    type: 'checkbox'
+    type: 'checkbox',
+    role: 'switch'
   });
-  return React.createElement(_View.default, _extends({}, other, {
-    style: rootStyle
-  }), React.createElement(_View.default, {
-    style: trackStyle
-  }), React.createElement(_View.default, {
-    ref: thumbRef,
-    style: thumbStyle
-  }), nativeControl);
+  return (
+    /*#__PURE__*/
+    React.createElement(_View.default, _extends({}, other, {
+      style: rootStyle
+    }),
+    /*#__PURE__*/
+    React.createElement(_View.default, {
+      style: trackStyle
+    }),
+    /*#__PURE__*/
+    React.createElement(_View.default, {
+      ref: thumbRef,
+      style: thumbStyle
+    }), nativeControl)
+  );
 });
 Switch.displayName = 'Switch';
 
@@ -143,7 +153,7 @@ var styles = _StyleSheet.default.create({
   cursorInherit: {
     cursor: 'inherit'
   },
-  track: _objectSpread({}, _StyleSheet.default.absoluteFillObject, {
+  track: _objectSpread(_objectSpread({}, _StyleSheet.default.absoluteFillObject), {}, {
     height: '70%',
     margin: 'auto',
     transitionDuration: '0.1s',
@@ -162,7 +172,7 @@ var styles = _StyleSheet.default.create({
   thumbActive: {
     start: '100%'
   },
-  nativeControl: _objectSpread({}, _StyleSheet.default.absoluteFillObject, {
+  nativeControl: _objectSpread(_objectSpread({}, _StyleSheet.default.absoluteFillObject), {}, {
     height: '100%',
     margin: 0,
     opacity: 0,
