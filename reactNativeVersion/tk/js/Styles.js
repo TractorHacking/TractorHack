@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
   },
   diagItem : {
     backgroundColor : 'green'
+  },
+  catTitle : {
+    
+  },
+  catGroup : {
+    
   }
   
 });

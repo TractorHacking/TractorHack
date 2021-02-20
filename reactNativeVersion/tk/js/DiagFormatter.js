@@ -5,10 +5,6 @@ import styles from './Styles.js';
 class DiagFormatter extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      data : props.data
-    };
   }
   
   makeCatTitle (cat) {
@@ -35,7 +31,7 @@ class DiagFormatter extends React.Component {
   render() {
     return (
       <View>
-        {this.state.data.map((cat)=> this.catMaker(cat))}
+        {this.props.data.map((cat)=> this.catMaker(cat))}
       </View>
     );
   }
