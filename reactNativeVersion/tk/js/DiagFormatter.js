@@ -13,15 +13,29 @@ class DiagFormatter extends React.Component {
     )
   }
   
-  makeGroup (cat) {
+  singleGroup(sGroup) {
     return (
-      <Text style = {styles.catGroup}> Group goes here...</Text>
+    <View style = {styles.catGroupView} key = {sGroup.title + sGroup.value}>
+      <Text style = {styles.catGroup}>
+        {sGroup.title + "   " + sGroup.value}
+      </Text>
+    </View>
+    )
+  }
+  
+  makeGroup (cat) {
+    let group = [];
+    
+    cat.group.forEach((gp) => {group.push(this.singleGroup(gp))});
+    
+    return (      
+      group      
     )
   }
   
   catMaker = (cat) => {
     return (
-      <View>
+      <View key = {cat.catTitle}>
         {this.makeCatTitle(cat)}
         {this.makeGroup(cat)}
       </View>

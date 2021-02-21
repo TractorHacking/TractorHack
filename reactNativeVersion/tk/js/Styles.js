@@ -28,10 +28,15 @@ const styles = StyleSheet.create({
     backgroundColor : 'green'
   },
   catTitle : {
-    
+    fontweight : 'bold',
+    backgroundColor : '#F0F0F0'
   },
   catGroup : {
     
+  },
+  catGroupView : {
+    flex : 1,
+    flexDirection : 'row-reverse'
   }
   
 });

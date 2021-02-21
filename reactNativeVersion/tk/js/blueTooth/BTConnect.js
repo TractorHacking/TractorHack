@@ -37,11 +37,10 @@ class BTConnect extends React.Component {
   
   singleButton = (tractor) => {
     return (
-    <View style = {styles.btTractorButton}>
+    <View style = {styles.btTractorButton} key = {tractor.title}>
       <Button 
         title = {tractor.title}
         onPress = {tractor.onPress}
-        key = {tractor.title}
       />
     </View>
     );
