@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
   },
   insideCatTitle : {
     flex : 1
+  },
+  title : {
+    
   }
   
   

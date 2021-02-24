@@ -60,14 +60,17 @@ class BTConnect extends React.Component {
     switch (this.state.connectedStat) {
       case 'notTryed' :
         return (
-          this.buttonMaker(this.state.tractorList)
+          <View>
+            <Text style = {styles.title}> Connections Available </Text>
+            {this.buttonMaker(this.state.tractorList)}
+          </View>
         );
         break;
       case 'failure' :
         return (
           <View>
             <View style = {styles.padded}>
-              <Button title = "Disconnect"
+              <Button title = "Back"
                 onPress = {() => {this.props.changeAppState('splash')}}
               />
             </View>

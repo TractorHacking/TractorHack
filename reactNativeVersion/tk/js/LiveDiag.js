@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, Text, View, Image} from 'react-native';
-import tractorImg from '../assets/bluetractor.png';
 import styles from './Styles.js';
 import DiagFormatter from './DiagFormatter';
+import Tractor from './TractorImg.js';
 
 class LiveDiag extends React.Component {
   constructor(props) {
@@ -15,16 +15,7 @@ class LiveDiag extends React.Component {
   componentDidMount() {
     this.updateData();
   }
-  
-  tractor() {
-    return (
-      <Image
-        source = {{uri : tractorImg}}
-        style = {styles.imgProp}
-      />
-    );
-  }
-  
+
   fetchData() {
     let x =
       {
@@ -115,7 +106,8 @@ class LiveDiag extends React.Component {
   render() {
     return (
       <View>
-        {this.tractor()}
+        <Text style = {styles.title}> Live Diagnostic Data </Text>
+        <Tractor />
         <Button title = "Disconnect"
                 onPress = {() => {this.props.changeAppState('splash')}}
         />
