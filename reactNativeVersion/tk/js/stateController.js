@@ -1,9 +1,11 @@
 import React from 'react';
-import {Button, Text} from 'react-native';
+import {Image, Pressable, Text, Button} from 'react-native';
 import BTConnect from './blueTooth/BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
-import History from './History.js';
+import ErrorSnapshot from './ErrorSnapshot.js';
+import logo from '../assets/logo.png';
+import styles from './Styles.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -21,9 +23,15 @@ class StateController extends React.Component {
     switch (this.state.appState) {
       case 'splash' :
         return (
+          <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
+          <Image
+            source = {{uri : logo}}
+            style = {styles.splashImg}
+          />
           <Button title = "Connect" 
                   onPress = {() => {this.changeAppState('bluetooth')}}
           />
+          </Pressable>
         );
         break;
       case 'bluetooth' :
@@ -41,9 +49,9 @@ class StateController extends React.Component {
           <LiveDiag changeAppState = {this.changeAppState} />
         );
         break;
-      case 'history' :
+      case 'errorsnap' :
         return (
-          <History changeAppState = {this.changeAppState} />
+          <ErrorSnapshot changeAppState = {this.changeAppState} />
         )
         break;
     };

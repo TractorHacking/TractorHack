@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Text} from 'react-native';
-
+import {Button, Text, View} from 'react-native';
+import styles from '../Styles.js';
 
 
 class BTConnect extends React.Component {
@@ -37,11 +37,12 @@ class BTConnect extends React.Component {
   
   singleButton = (tractor) => {
     return (
+    <View style = {styles.btTractorButton} key = {tractor.title}>
       <Button 
         title = {tractor.title}
         onPress = {tractor.onPress}
-        key = {tractor.title}
       />
+    </View>
     );
   }
   
@@ -59,17 +60,22 @@ class BTConnect extends React.Component {
     switch (this.state.connectedStat) {
       case 'notTryed' :
         return (
-          this.buttonMaker(this.state.tractorList)
+          <View>
+            <Text style = {styles.title}> Connections Available </Text>
+            {this.buttonMaker(this.state.tractorList)}
+          </View>
         );
         break;
       case 'failure' :
         return (
-          <Text>
-            <Button title = "Disconnect"
-              onPress = {() => {this.props.changeAppState('splash')}}
-            />
+          <View>
+            <View style = {styles.padded}>
+              <Button title = "Back"
+                onPress = {() => {this.props.changeAppState('splash')}}
+              />
+            </View>
             <Text> Failed To Connect </Text>
-          </Text>
+          </View>
         );
         break;
     }

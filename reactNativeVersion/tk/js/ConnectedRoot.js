@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button, Text} from 'react-native';
-import {styles} from '../App.js';
+import {Button, Text, View} from 'react-native';
+import styles from './Styles.js';
+import Tractor from './TractorImg.js';
 
 
 class ConnectedRoot extends React.Component {
@@ -10,19 +11,25 @@ class ConnectedRoot extends React.Component {
   
   render() {
     return (
-      <Text>
-        <Button title = "Disconnect"
-                onPress = {() => {this.props.changeAppState('splash')}}
-        />
-        <Text> </Text>
-        <Button title = "Live Diag Data"
-                onPress = {() => {this.props.changeAppState('live')}}
-        />
-        <Text> </Text>
-        <Button title = "History"
-                onPress = {() => {this.props.changeAppState('history')}}
-        />
-      </Text>
+      <View>
+        <Text style = {styles.title}> Connected </Text>
+        <Tractor />
+        <View style = {styles.padded}>
+          <Button title = "Disconnect"
+                  onPress = {() => {this.props.changeAppState('splash')}}
+          />
+        </View>
+        <View style = {styles.padded}>
+          <Button title = "Live Diag Data"
+                  onPress = {() => {this.props.changeAppState('live')}}
+          />
+        </View>
+        <View style = {styles.padded}>
+          <Button title = "Diagnostic History"
+                  onPress = {() => {this.props.changeAppState('errorsnap')}}
+          />
+        </View>
+      </View>
     );
   }
 }

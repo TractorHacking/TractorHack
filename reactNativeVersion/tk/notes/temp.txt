@@ -1,0 +1,16 @@
+        <SectionList
+          sections = {this.state.data}
+          keyExtractor = {(a,b) => a + b}
+          renderItem = {
+            ({catItem}) => (
+              <View style = {styles.diagItem}>
+                <Text>{catItem}</Text>
+              </View>
+            ) 
+          }
+          renderSectionHeader = {
+            ({section : {secTitle}}) => (
+              <Text> {secTitle} </Text>
+            )
+          }
+        />
