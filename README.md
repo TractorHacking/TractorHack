@@ -1,12 +1,11 @@
 # TractorHack
-# CSC486
+## CSC486
 
 
-#__Members__
-# 
-# Jason Iqbal
-# Takumi Arai
-# Brandon Chen
-# Jonathan De La Torre
-# Tommy Bergmann
-# Tyler Lain
+_members_ 
+* Jason Iqbal
+* Takumi Arai
+* Tyler Lain
+* Jonathan De La Torre
+* Tommy Bergmann
+* Brandon Chen
