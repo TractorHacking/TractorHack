@@ -1,11 +1,11 @@
 import React from 'react';
 import {Image, Pressable, Text, Button} from 'react-native';
-import BTConnect from './blueTooth/BTConnect.js';
+import BTConnect from './BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
 import ErrorSnapshot from './ErrorSnapshot.js';
-import logo from '../assets/logo.png';
-import styles from './Styles.js';
+import logo from '../../assets/logo.png';
+import styles from '../ui/Styles.js';
 
 class StateController extends React.Component {
   constructor(props) {
