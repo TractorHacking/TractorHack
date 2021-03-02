@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import styles from '../ui/Styles.js';
+import HeaderBar from '../ui/HeaderBar.js';
 
 
 class BTConnect extends React.Component {
@@ -61,7 +62,7 @@ class BTConnect extends React.Component {
       case 'notTryed' :
         return (
           <View>
-            <Text style = {styles.title}> Connections Available </Text>
+            <HeaderBar title = "Connections Available" />
             {this.buttonMaker(this.state.tractorList)}
           </View>
         );

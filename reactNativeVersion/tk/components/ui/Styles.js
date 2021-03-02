@@ -61,8 +61,16 @@ const styles = StyleSheet.create({
   },
   title : {
     
+  },
+  headerBar : {
+    flex : 1,
+    backgroundColor : '#3F53A3'
+  },
+  headerBarText : {
+    fontFamily : 'Roboto',
+    fontweight : 'bold',
+    fontSize : 24
   }
-  
   
 });
 export default styles;
