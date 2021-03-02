@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Button, Text} from 'react-native';
+import {ImageBackground, View, Button, Text} from 'react-native';
 import styles from './Styles.js';
+import Grad from '../../assets/grad.png';
 
 class HeaderBar extends React.Component {
   constructor(props) {
@@ -10,9 +11,13 @@ class HeaderBar extends React.Component {
   
   render() {
     return (
-      <View style = {styles.headerBar} >
-        <Text style = {styles.headerBarText}> {this.props.title} </Text>
-      </View>
+      
+        <ImageBackground source={Grad} style = {styles.gradImg} resizeMode = "stretch">
+          <View style = {styles.centerView}>
+            <Text style = {styles.headerBarText}> {this.props.title} </Text>
+          </View>
+        </ImageBackground>
+      
     )
   }
 }

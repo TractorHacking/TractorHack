@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+    justifyContent: 'space-between',
   },
   orange: {
     color: 'orange'
@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     height : 117
   },
   btTractorButton : {
-    padding : 10
+    padding : 10,
+    alignItems: 'center'
   },
   padded : {
     padding : 10
@@ -59,17 +60,28 @@ const styles = StyleSheet.create({
   insideCatTitle : {
     flex : 1
   },
-  title : {
-    
-  },
   headerBar : {
     flex : 1,
-    backgroundColor : '#3F53A3'
+    flexDirection : 'column',
+    alignItems: 'stretch'
   },
   headerBarText : {
-    fontFamily : 'Roboto',
+ //   fontFamily : 'Roboto',
     fontweight : 'bold',
-    fontSize : 24
+    fontSize : 24,
+    color : '#FFFFFF'
+    
+  },
+  gradImg : {
+      borderBottomRightRadius : 30,
+      borderBottomLeftRadius : 30
+ //   flex : 1,
+//    resizeMethod : 'resize',
+ //   justifyContent : 'center'
+    
+  },
+  centerView : {
+    alignItems: 'center'
   }
   
 });

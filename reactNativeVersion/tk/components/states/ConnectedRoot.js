@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Text, View} from 'react-native';
 import styles from '../ui/Styles.js';
 import Tractor from '../ui/TractorImg.js';
-
+import HeaderBar from '../ui/HeaderBar.js';
 
 class ConnectedRoot extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ConnectedRoot extends React.Component {
   render() {
     return (
       <View>
-        <Text style = {styles.title}> Connected </Text>
+        <HeaderBar title = "Connected"/>
         <Tractor />
         <View style = {styles.padded}>
           <Button title = "Disconnect"

@@ -70,12 +70,12 @@ class BTConnect extends React.Component {
       case 'failure' :
         return (
           <View>
+            <HeaderBar title = "Failed To Connect" />
             <View style = {styles.padded}>
               <Button title = "Back"
                 onPress = {() => {this.props.changeAppState('splash')}}
               />
             </View>
-            <Text> Failed To Connect </Text>
           </View>
         );
         break;
