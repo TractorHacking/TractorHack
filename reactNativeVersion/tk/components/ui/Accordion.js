@@ -1,8 +1,8 @@
 import React from 'react';
 import {Pressable, Text, View, Image} from 'react-native';
 import styles from './Styles.js';
-import down from '../assets/down.png';
-import up from '../assets/up.png';
+import down from '../../assets/down.png';
+import up from '../../assets/up.png';
 
 class Accordion extends React.Component {
   constructor(props) {

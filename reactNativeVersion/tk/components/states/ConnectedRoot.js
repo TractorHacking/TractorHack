@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
-import styles from './Styles.js';
-import Tractor from './TractorImg.js';
+import styles from '../ui/Styles.js';
+import Tractor from '../ui/TractorImg.js';
 
 
 class ConnectedRoot extends React.Component {

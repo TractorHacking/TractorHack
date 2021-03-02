@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
-import styles from '../Styles.js';
+import styles from '../ui/Styles.js';
 
 
 class BTConnect extends React.Component {

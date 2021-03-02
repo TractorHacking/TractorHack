@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, Text, View, Image} from 'react-native';
-import styles from './Styles.js';
-import DiagFormatter from './DiagFormatter';
-import Tractor from './TractorImg.js';
+import styles from '../ui/Styles.js';
+import DiagFormatter from '../ui/DiagFormatter';
+import Tractor from '../ui/TractorImg.js';
 
 class LiveDiag extends React.Component {
   constructor(props) {
