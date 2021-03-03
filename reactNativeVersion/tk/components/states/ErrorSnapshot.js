@@ -3,6 +3,7 @@ import {Button, Text, View, Image} from 'react-native';
 import styles from '../ui/Styles.js';
 import DiagFormatter from '../ui/DiagFormatter';
 import Tractor from '../ui/TractorImg.js';
+import HeaderBar from '../ui/HeaderBar.js';
 
 class ErrorSnapshot extends React.Component {
   constructor(props) {
@@ -71,10 +72,12 @@ class ErrorSnapshot extends React.Component {
     return (
       <View>
         <View>
-            <Button title = "<"
-                    onPress = {() => {this.props.changeAppState('connected')}}
-            />
-            <Text style = {styles.title}> Vehicle History </Text>
+            <HeaderBar title = "Vehicle History"/>
+            <View style = {styles.paddedCenter}>
+              <Button title = "<"
+                      onPress = {() => {this.props.changeAppState('connected')}}
+              />
+            </View>
             <Tractor />
         </View>
         <Button title = "Disconnect"

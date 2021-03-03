@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, View} from 'react-native';
 import styles from './Styles.js';
 import tractorImg from '../../assets/bluetractor.png';
 
@@ -10,10 +10,12 @@ class TractorImg extends React.Component {
   
   render() {
     return (
-      <Image
-        source = {{uri : tractorImg}}
-        style = {styles.imgProp}
-      />
+      <View style = {styles.centerView}>
+        <Image
+          source = {{uri : tractorImg}}
+          style = {styles.imgProp}
+        />
+      </View>
     );
   }
 }

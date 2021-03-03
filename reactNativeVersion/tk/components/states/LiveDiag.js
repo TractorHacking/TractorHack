@@ -3,6 +3,7 @@ import {Button, Text, View, Image} from 'react-native';
 import styles from '../ui/Styles.js';
 import DiagFormatter from '../ui/DiagFormatter';
 import Tractor from '../ui/TractorImg.js';
+import HeaderBar from '../ui/HeaderBar.js';
 
 class LiveDiag extends React.Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class LiveDiag extends React.Component {
   render() {
     return (
       <View>
-        <Text style = {styles.title}> Live Diagnostic Data </Text>
+        <HeaderBar title = "Live Diagnostic Data" />
         <Tractor />
         <Button title = "Disconnect"
                 onPress = {() => {this.props.changeAppState('splash')}}
