@@ -83,8 +83,10 @@ var additiveInverse = function additiveInverse(value) {
 };
 
 var i18nStyle = function i18nStyle(originalStyle) {
-  var doLeftAndRightSwapInRTL = _I18nManager.default.doLeftAndRightSwapInRTL,
-      isRTL = _I18nManager.default.isRTL;
+  var _I18nManager$getConst = _I18nManager.default.getConstants(),
+      doLeftAndRightSwapInRTL = _I18nManager$getConst.doLeftAndRightSwapInRTL,
+      isRTL = _I18nManager$getConst.isRTL;
+
   var style = originalStyle || emptyObject;
   var frozenProps = {};
   var nextStyle = {};
@@ -128,15 +130,20 @@ var i18nStyle = function i18nStyle(originalStyle) {
         // convert start/end
         var convertedValue = PROPERTIES_I18N[originalValue];
         value = isRTL ? PROPERTIES_FLIP[convertedValue] : convertedValue;
-      } else if (isRTL && doLeftAndRightSwapInRTL && PROPERTIES_FLIP[originalValue]) {
-        value = PROPERTIES_FLIP[originalValue];
+      } else if (isRTL && doLeftAndRightSwapInRTL) {
+        var flippedValue = PROPERTIES_FLIP[originalValue];
+
+        if (flippedValue != null) {
+          value = flippedValue;
+        }
       }
     } // Create finalized style
 
 
     if (isRTL && prop === 'textShadowOffset') {
+      var invertedValue = additiveInverse(value.width);
+      value.width = invertedValue;
       nextStyle[prop] = value;
-      nextStyle[prop].width = additiveInverse(value.width);
     } else if (!frozenProps[prop]) {
       nextStyle[prop] = value;
     }

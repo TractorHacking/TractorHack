@@ -25,7 +25,10 @@ function RefreshControl(props) {
       titleColor = props.titleColor,
       rest = _objectWithoutPropertiesLoose(props, ["colors", "enabled", "onRefresh", "progressBackgroundColor", "progressViewOffset", "refreshing", "size", "tintColor", "title", "titleColor"]);
 
-  return React.createElement(View, rest);
+  return (
+    /*#__PURE__*/
+    React.createElement(View, rest)
+  );
 }
 
 export default RefreshControl;

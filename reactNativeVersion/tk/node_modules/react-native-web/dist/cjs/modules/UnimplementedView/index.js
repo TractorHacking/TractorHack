@@ -9,7 +9,9 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 /**
  * Common implementation for a simple stubbed view.
@@ -29,9 +31,12 @@ function (_React$Component) {
   };
 
   _proto.render = function render() {
-    return _react.default.createElement(_View.default, {
-      style: [unimplementedViewStyles, this.props.style]
-    }, this.props.children);
+    return (
+      /*#__PURE__*/
+      _react.default.createElement(_View.default, {
+        style: [unimplementedViewStyles, this.props.style]
+      }, this.props.children)
+    );
   };
 
   return UnimplementedView;

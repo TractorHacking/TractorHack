@@ -25,7 +25,9 @@ import View from '../View';
 var emptyObject = {};
 var thumbDefaultBoxShadow = '0px 1px 3px rgba(0,0,0,0.5)';
 var thumbFocusedBoxShadow = thumbDefaultBoxShadow + ", 0 0 0 10px rgba(0,0,0,0.1)";
-var Switch = forwardRef(function (props, forwardedRef) {
+var Switch =
+/*#__PURE__*/
+forwardRef(function (props, forwardedRef) {
   var accessibilityLabel = props.accessibilityLabel,
       _props$activeThumbCol = props.activeThumbColor,
       activeThumbColor = _props$activeThumbCol === void 0 ? '#009688' : _props$activeThumbCol,
@@ -65,7 +67,7 @@ var Switch = forwardRef(function (props, forwardedRef) {
       styleHeight = _StyleSheet$flatten.height,
       styleWidth = _StyleSheet$flatten.width;
 
-  var height = styleHeight || 20;
+  var height = styleHeight || '20px';
   var minWidth = multiplyStyleLengthValue(height, 2);
   var width = styleWidth > minWidth ? styleWidth : minWidth;
   var trackBorderRadius = multiplyStyleLengthValue(height, 0.5);
@@ -112,16 +114,24 @@ var Switch = forwardRef(function (props, forwardedRef) {
     onFocus: handleFocusState,
     ref: forwardedRef,
     style: [styles.nativeControl, styles.cursorInherit],
-    type: 'checkbox'
+    type: 'checkbox',
+    role: 'switch'
   });
-  return React.createElement(View, _extends({}, other, {
-    style: rootStyle
-  }), React.createElement(View, {
-    style: trackStyle
-  }), React.createElement(View, {
-    ref: thumbRef,
-    style: thumbStyle
-  }), nativeControl);
+  return (
+    /*#__PURE__*/
+    React.createElement(View, _extends({}, other, {
+      style: rootStyle
+    }),
+    /*#__PURE__*/
+    React.createElement(View, {
+      style: trackStyle
+    }),
+    /*#__PURE__*/
+    React.createElement(View, {
+      ref: thumbRef,
+      style: thumbStyle
+    }), nativeControl)
+  );
 });
 Switch.displayName = 'Switch';
 var styles = StyleSheet.create({
@@ -135,7 +145,7 @@ var styles = StyleSheet.create({
   cursorInherit: {
     cursor: 'inherit'
   },
-  track: _objectSpread({}, StyleSheet.absoluteFillObject, {
+  track: _objectSpread(_objectSpread({}, StyleSheet.absoluteFillObject), {}, {
     height: '70%',
     margin: 'auto',
     transitionDuration: '0.1s',
@@ -154,7 +164,7 @@ var styles = StyleSheet.create({
   thumbActive: {
     start: '100%'
   },
-  nativeControl: _objectSpread({}, StyleSheet.absoluteFillObject, {
+  nativeControl: _objectSpread(_objectSpread({}, StyleSheet.absoluteFillObject), {}, {
     height: '100%',
     margin: 0,
     opacity: 0,

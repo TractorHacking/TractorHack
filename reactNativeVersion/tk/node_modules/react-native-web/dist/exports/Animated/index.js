@@ -20,7 +20,7 @@ import ScrollView from '../ScrollView';
 import Text from '../Text';
 import View from '../View';
 
-var Animated = _objectSpread({}, AnimatedImplementation, {
+var Animated = _objectSpread(_objectSpread({}, AnimatedImplementation), {}, {
   FlatList: AnimatedImplementation.createAnimatedComponent(FlatList, {
     scrollEventThrottle: 0.0001
   }),

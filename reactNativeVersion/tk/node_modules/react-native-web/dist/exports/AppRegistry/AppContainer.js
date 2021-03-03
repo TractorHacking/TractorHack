@@ -10,11 +10,15 @@
 import StyleSheet from '../StyleSheet';
 import View from '../View';
 import React, { createContext } from 'react';
-var RootTagContext = createContext(null);
+var RootTagContext =
+/*#__PURE__*/
+createContext(null);
 export default function AppContainer(props) {
   var children = props.children,
       WrapperComponent = props.WrapperComponent;
-  var innerView = React.createElement(View, {
+  var innerView =
+  /*#__PURE__*/
+  React.createElement(View, {
     children: children,
     key: 1,
     pointerEvents: "box-none",
@@ -22,15 +26,22 @@ export default function AppContainer(props) {
   });
 
   if (WrapperComponent) {
-    innerView = React.createElement(WrapperComponent, null, innerView);
+    innerView =
+    /*#__PURE__*/
+    React.createElement(WrapperComponent, null, innerView);
   }
 
-  return React.createElement(RootTagContext.Provider, {
-    value: props.rootTag
-  }, React.createElement(View, {
-    pointerEvents: "box-none",
-    style: styles.appContainer
-  }, innerView));
+  return (
+    /*#__PURE__*/
+    React.createElement(RootTagContext.Provider, {
+      value: props.rootTag
+    },
+    /*#__PURE__*/
+    React.createElement(View, {
+      pointerEvents: "box-none",
+      style: styles.appContainer
+    }, innerView))
+  );
 }
 var styles = StyleSheet.create({
   appContainer: {

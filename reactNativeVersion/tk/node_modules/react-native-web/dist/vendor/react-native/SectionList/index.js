@@ -11,7 +11,9 @@
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -24,7 +26,7 @@ import * as React from 'react';
 import ScrollView from '../../../exports/ScrollView';
 import VirtualizedSectionList from '../VirtualizedSectionList';
 
-var defaultProps = _objectSpread({}, VirtualizedSectionList.defaultProps, {
+var defaultProps = _objectSpread(_objectSpread({}, VirtualizedSectionList.defaultProps), {}, {
   stickySectionHeadersEnabled: Platform.OS === 'ios'
 });
 
@@ -177,6 +179,8 @@ function (_React$PureComponent) {
 
   _proto.render = function render() {
     return (
+      /*#__PURE__*/
+
       /* $FlowFixMe(>=0.66.0 site=react_native_fb) This comment suppresses an
        * error found when Flow v0.66 was deployed. To see the error delete this
        * comment and run Flow. */

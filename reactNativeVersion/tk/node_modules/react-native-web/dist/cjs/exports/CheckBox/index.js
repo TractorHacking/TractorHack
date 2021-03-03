@@ -27,7 +27,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-var CheckBox = (0, React.forwardRef)(function (props, forwardedRef) {
+var CheckBox =
+/*#__PURE__*/
+(0, React.forwardRef)(function (props, forwardedRef) {
   var color = props.color,
       disabled = props.disabled,
       onChange = props.onChange,
@@ -43,7 +45,9 @@ var CheckBox = (0, React.forwardRef)(function (props, forwardedRef) {
     onValueChange && onValueChange(value);
   }
 
-  var fakeControl = React.createElement(_View.default, {
+  var fakeControl =
+  /*#__PURE__*/
+  React.createElement(_View.default, {
     style: [styles.fakeControl, value && styles.fakeControlChecked, // custom color
     value && color && {
       backgroundColor: color,
@@ -58,9 +62,13 @@ var CheckBox = (0, React.forwardRef)(function (props, forwardedRef) {
     style: [styles.nativeControl, styles.cursorInherit],
     type: 'checkbox'
   });
-  return React.createElement(_View.default, _extends({}, other, {
-    style: [styles.root, style, disabled && styles.cursorDefault]
-  }), fakeControl, nativeControl);
+  return (
+    /*#__PURE__*/
+    React.createElement(_View.default, _extends({}, other, {
+      accessibilityDisabled: disabled,
+      style: [styles.root, style, disabled && styles.cursorDefault]
+    }), fakeControl, nativeControl)
+  );
 });
 CheckBox.displayName = 'CheckBox';
 
@@ -101,7 +109,7 @@ var styles = _StyleSheet.default.create({
     backgroundColor: '#AAB8C2',
     borderColor: '#AAB8C2'
   },
-  nativeControl: _objectSpread({}, _StyleSheet.default.absoluteFillObject, {
+  nativeControl: _objectSpread(_objectSpread({}, _StyleSheet.default.absoluteFillObject), {}, {
     height: '100%',
     margin: 0,
     opacity: 0,

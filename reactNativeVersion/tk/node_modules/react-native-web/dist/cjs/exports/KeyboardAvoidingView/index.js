@@ -13,7 +13,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var KeyboardAvoidingView =
 /*#__PURE__*/
@@ -59,9 +61,12 @@ function (_React$Component) {
         keyboardVerticalOffset = _this$props.keyboardVerticalOffset,
         rest = _objectWithoutPropertiesLoose(_this$props, ["behavior", "contentContainerStyle", "keyboardVerticalOffset"]);
 
-    return _react.default.createElement(_View.default, _extends({
-      onLayout: this.onLayout
-    }, rest));
+    return (
+      /*#__PURE__*/
+      _react.default.createElement(_View.default, _extends({
+        onLayout: this.onLayout
+      }, rest))
+    );
   };
 
   return KeyboardAvoidingView;

@@ -8,6 +8,7 @@
  */
 import ReactNativePropRegistry from './ReactNativePropRegistry';
 import flattenStyle from './flattenStyle';
+import validate from './validate';
 var absoluteFillObject = {
   position: 'absolute',
   left: 0,
@@ -44,10 +45,7 @@ var StyleSheet = {
     var result = {};
     Object.keys(styles).forEach(function (key) {
       if (process.env.NODE_ENV !== 'production') {
-        var validate = require('./validate');
-
-        var interopValidate = validate.default ? validate.default : validate;
-        interopValidate(key, styles);
+        validate(key, styles);
       }
 
       var id = styles[key] && ReactNativePropRegistry.register(styles[key]);

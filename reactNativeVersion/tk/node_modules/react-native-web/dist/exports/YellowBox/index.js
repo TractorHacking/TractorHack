@@ -11,7 +11,10 @@ import React from 'react';
 import UnimplementedView from '../../modules/UnimplementedView';
 
 function YellowBox(props) {
-  return React.createElement(UnimplementedView, props);
+  return (
+    /*#__PURE__*/
+    React.createElement(UnimplementedView, props)
+  );
 }
 
 YellowBox.ignoreWarnings = function () {};

@@ -7,6 +7,8 @@ var _ReactNativePropRegistry = _interopRequireDefault(require("./ReactNativeProp
 
 var _flattenStyle = _interopRequireDefault(require("./flattenStyle"));
 
+var _validate = _interopRequireDefault(require("./validate"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -55,10 +57,7 @@ var StyleSheet = {
     var result = {};
     Object.keys(styles).forEach(function (key) {
       if (process.env.NODE_ENV !== 'production') {
-        var validate = require('./validate');
-
-        var interopValidate = validate.default ? validate.default : validate;
-        interopValidate(key, styles);
+        (0, _validate.default)(key, styles);
       }
 
       var id = styles[key] && _ReactNativePropRegistry.default.register(styles[key]);

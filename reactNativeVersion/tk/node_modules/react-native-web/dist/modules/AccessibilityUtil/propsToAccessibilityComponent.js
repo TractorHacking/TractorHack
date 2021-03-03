@@ -10,15 +10,22 @@ import propsToAriaRole from './propsToAriaRole';
 var roleComponents = {
   article: 'article',
   banner: 'header',
+  blockquote: 'blockquote',
+  code: 'code',
   complementary: 'aside',
   contentinfo: 'footer',
+  deletion: 'del',
+  emphasis: 'em',
+  figure: 'figure',
+  insertion: 'ins',
   form: 'form',
   link: 'a',
   list: 'ul',
   listitem: 'li',
   main: 'main',
   navigation: 'nav',
-  region: 'section'
+  region: 'section',
+  strong: 'strong'
 };
 var emptyObject = {};
 
@@ -30,6 +37,11 @@ var propsToAccessibilityComponent = function propsToAccessibilityComponent(props
   // special-case for "label" role which doesn't map to an ARIA role
   if (props.accessibilityRole === 'label') {
     return 'label';
+  } // special-case for "href" which becomes a link
+
+
+  if (props.href != null) {
+    return 'a';
   }
 
   var role = propsToAriaRole(props);

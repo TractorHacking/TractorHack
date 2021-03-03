@@ -26,26 +26,34 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  *
  * 
  */
-var Button = React.forwardRef(function (props, forwardedRef) {
+var Button =
+/*#__PURE__*/
+React.forwardRef(function (props, forwardedRef) {
   var accessibilityLabel = props.accessibilityLabel,
       color = props.color,
       disabled = props.disabled,
       onPress = props.onPress,
       testID = props.testID,
       title = props.title;
-  return React.createElement(_TouchableOpacity.default, {
-    accessibilityLabel: accessibilityLabel,
-    accessibilityRole: "button",
-    disabled: disabled,
-    onPress: onPress,
-    ref: forwardedRef,
-    style: [styles.button, color && {
-      backgroundColor: color
-    }, disabled && styles.buttonDisabled],
-    testID: testID
-  }, React.createElement(_Text.default, {
-    style: [styles.text, disabled && styles.textDisabled]
-  }, title));
+  return (
+    /*#__PURE__*/
+    React.createElement(_TouchableOpacity.default, {
+      accessibilityLabel: accessibilityLabel,
+      accessibilityRole: "button",
+      disabled: disabled,
+      focusable: !disabled,
+      onPress: onPress,
+      ref: forwardedRef,
+      style: [styles.button, color && {
+        backgroundColor: color
+      }, disabled && styles.buttonDisabled],
+      testID: testID
+    },
+    /*#__PURE__*/
+    React.createElement(_Text.default, {
+      style: [styles.text, disabled && styles.textDisabled]
+    }, title))
+  );
 });
 Button.displayName = 'Button';
 

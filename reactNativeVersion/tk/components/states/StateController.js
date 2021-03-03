@@ -1,10 +1,11 @@
 import React from 'react';
-import {Image, Pressable, Text, Button} from 'react-native';
-import BTConnect from './blueTooth/BTConnect.js';
+import {Image, Pressable, Text, Button, View} from 'react-native';
+import BTConnect from './BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
-import logo from '../assets/logo.png';
-import styles from './Styles.js';
+import ErrorSnapshot from './ErrorSnapshot.js';
+import logo from '../../assets/logo.png';
+import styles from '../ui/Styles.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -22,15 +23,14 @@ class StateController extends React.Component {
     switch (this.state.appState) {
       case 'splash' :
         return (
-          <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
-          <Image
-            source = {{uri : logo}}
-            style = {styles.splashImg}
-          />
-          <Button title = "Connect" 
-                  onPress = {() => {this.changeAppState('bluetooth')}}
-          />
-          </Pressable>
+          <View style = {styles.centerView}>
+            <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
+              <Image
+                source = {{uri : logo}}
+                style = {styles.splashImg}
+              />
+            </Pressable>
+          </View>
         );
         break;
       case 'bluetooth' :
@@ -47,6 +47,11 @@ class StateController extends React.Component {
         return (
           <LiveDiag changeAppState = {this.changeAppState} />
         );
+        break;
+      case 'errorsnap' :
+        return (
+          <ErrorSnapshot changeAppState = {this.changeAppState} />
+        )
         break;
     };
   }

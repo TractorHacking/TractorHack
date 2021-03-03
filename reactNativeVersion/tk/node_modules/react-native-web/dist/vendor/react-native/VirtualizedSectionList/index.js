@@ -19,7 +19,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 import * as React from 'react';
 import View from '../../../exports/View';
@@ -53,7 +55,7 @@ function (_React$PureComponent) {
       viewOffset = frame.length;
     }
 
-    var toIndexParams = _objectSpread({}, params, {
+    var toIndexParams = _objectSpread(_objectSpread({}, params), {}, {
       viewOffset: viewOffset,
       index: index
     });
@@ -86,7 +88,7 @@ function (_React$PureComponent) {
       }
 
       var keyExtractor = info.section.keyExtractor || _this.props.keyExtractor;
-      return _objectSpread({}, viewable, {
+      return _objectSpread(_objectSpread({}, viewable), {}, {
         index: info.index,
 
         /* $FlowFixMe(>=0.63.0 site=react_native_fb) This comment suppresses an
@@ -141,24 +143,27 @@ function (_React$PureComponent) {
         var SeparatorComponent = _this._getSeparatorComponent(index, info);
 
         invariant(renderItem, 'no renderItem!');
-        return React.createElement(ItemWithSeparator, {
-          SeparatorComponent: SeparatorComponent,
-          LeadingSeparatorComponent: infoIndex === 0 ? _this.props.SectionSeparatorComponent : undefined,
-          cellKey: info.key,
-          index: infoIndex,
-          item: item,
-          leadingItem: info.leadingItem,
-          leadingSection: info.leadingSection,
-          onUpdateSeparator: _this._onUpdateSeparator,
-          prevCellKey: (_this._subExtractor(index - 1) || {}).key,
-          ref: function ref(_ref3) {
-            _this._cellRefs[info.key] = _ref3;
-          },
-          renderItem: renderItem,
-          section: info.section,
-          trailingItem: info.trailingItem,
-          trailingSection: info.trailingSection
-        });
+        return (
+          /*#__PURE__*/
+          React.createElement(ItemWithSeparator, {
+            SeparatorComponent: SeparatorComponent,
+            LeadingSeparatorComponent: infoIndex === 0 ? _this.props.SectionSeparatorComponent : undefined,
+            cellKey: info.key,
+            index: infoIndex,
+            item: item,
+            leadingItem: info.leadingItem,
+            leadingSection: info.leadingSection,
+            onUpdateSeparator: _this._onUpdateSeparator,
+            prevCellKey: (_this._subExtractor(index - 1) || {}).key,
+            ref: function ref(_ref3) {
+              _this._cellRefs[info.key] = _ref3;
+            },
+            renderItem: renderItem,
+            section: info.section,
+            trailingItem: info.trailingItem,
+            trailingSection: info.trailingSection
+          })
+        );
       }
     };
 
@@ -192,7 +197,7 @@ function (_React$PureComponent) {
       return v + props.getItemCount(section.data) + 2; // Add two for the section header and footer.
     }, 0) : 0;
     return {
-      childProps: _objectSpread({}, props, {
+      childProps: _objectSpread(_objectSpread({}, props), {}, {
         renderItem: this._renderItem,
         ItemSeparatorComponent: undefined,
         // Rendered with renderItem
@@ -212,9 +217,12 @@ function (_React$PureComponent) {
   };
 
   _proto.render = function render() {
-    return React.createElement(VirtualizedList, _extends({}, this.state.childProps, {
-      ref: this._captureRef
-    }));
+    return (
+      /*#__PURE__*/
+      React.createElement(VirtualizedList, _extends({}, this.state.childProps, {
+        ref: this._captureRef
+      }))
+    );
   };
 
   _proto._subExtractor = function _subExtractor(index) {
@@ -290,7 +298,7 @@ function (_React$PureComponent) {
   return VirtualizedSectionList;
 }(React.PureComponent);
 
-VirtualizedSectionList.defaultProps = _objectSpread({}, VirtualizedList.defaultProps, {
+VirtualizedSectionList.defaultProps = _objectSpread(_objectSpread({}, VirtualizedList.defaultProps), {}, {
   data: []
 });
 
@@ -349,7 +357,7 @@ function (_React$Component) {
         if (select === 'leading' && LeadingSeparatorComponent != null) {
           _this2.setState(function (state) {
             return {
-              leadingSeparatorProps: _objectSpread({}, state.leadingSeparatorProps, {}, newProps)
+              leadingSeparatorProps: _objectSpread(_objectSpread({}, state.leadingSeparatorProps), newProps)
             };
           });
         } else {
@@ -362,14 +370,14 @@ function (_React$Component) {
 
   ItemWithSeparator.getDerivedStateFromProps = function getDerivedStateFromProps(props, prevState) {
     return {
-      separatorProps: _objectSpread({}, prevState.separatorProps, {
+      separatorProps: _objectSpread(_objectSpread({}, prevState.separatorProps), {}, {
         leadingItem: props.item,
         leadingSection: props.leadingSection,
         section: props.section,
         trailingItem: props.trailingItem,
         trailingSection: props.trailingSection
       }),
-      leadingSeparatorProps: _objectSpread({}, prevState.leadingSeparatorProps, {
+      leadingSeparatorProps: _objectSpread(_objectSpread({}, prevState.leadingSeparatorProps), {}, {
         leadingItem: props.leadingItem,
         leadingSection: props.leadingSection,
         section: props.section,
@@ -384,7 +392,7 @@ function (_React$Component) {
   _proto2.updateSeparatorProps = function updateSeparatorProps(newProps) {
     this.setState(function (state) {
       return {
-        separatorProps: _objectSpread({}, state.separatorProps, {}, newProps)
+        separatorProps: _objectSpread(_objectSpread({}, state.separatorProps), newProps)
       };
     });
   };
@@ -402,9 +410,15 @@ function (_React$Component) {
       section: section,
       separators: this._separators
     });
-    var leadingSeparator = LeadingSeparatorComponent && React.createElement(LeadingSeparatorComponent, this.state.leadingSeparatorProps);
-    var separator = SeparatorComponent && React.createElement(SeparatorComponent, this.state.separatorProps);
+    var leadingSeparator = LeadingSeparatorComponent &&
+    /*#__PURE__*/
+    React.createElement(LeadingSeparatorComponent, this.state.leadingSeparatorProps);
+    var separator = SeparatorComponent &&
+    /*#__PURE__*/
+    React.createElement(SeparatorComponent, this.state.separatorProps);
     return leadingSeparator || separator ?
+    /*#__PURE__*/
+
     /* $FlowFixMe(>=0.89.0 site=react_native_fb) This comment suppresses an
      * error found when Flow v0.89 was deployed. To see the error, delete
      * this comment and run Flow. */

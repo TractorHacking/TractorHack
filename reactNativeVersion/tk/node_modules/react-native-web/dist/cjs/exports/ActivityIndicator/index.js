@@ -25,17 +25,22 @@ var accessibilityValue = {
 };
 
 var createSvgCircle = function createSvgCircle(style) {
-  return _react.default.createElement("circle", {
-    cx: "16",
-    cy: "16",
-    fill: "none",
-    r: "14",
-    strokeWidth: "4",
-    style: style
-  });
+  return (
+    /*#__PURE__*/
+    _react.default.createElement("circle", {
+      cx: "16",
+      cy: "16",
+      fill: "none",
+      r: "14",
+      strokeWidth: "4",
+      style: style
+    })
+  );
 };
 
-var ActivityIndicator = (0, _react.forwardRef)(function (props, forwardedRef) {
+var ActivityIndicator =
+/*#__PURE__*/
+(0, _react.forwardRef)(function (props, forwardedRef) {
   var _props$animating = props.animating,
       animating = _props$animating === void 0 ? true : _props$animating,
       _props$color = props.color,
@@ -47,7 +52,9 @@ var ActivityIndicator = (0, _react.forwardRef)(function (props, forwardedRef) {
       style = props.style,
       other = _objectWithoutPropertiesLoose(props, ["animating", "color", "hidesWhenStopped", "size", "style"]);
 
-  var svg = _react.default.createElement("svg", {
+  var svg =
+  /*#__PURE__*/
+  _react.default.createElement("svg", {
     height: "100%",
     viewBox: "0 0 32 32",
     width: "100%"
@@ -60,18 +67,23 @@ var ActivityIndicator = (0, _react.forwardRef)(function (props, forwardedRef) {
     strokeDashoffset: 60
   }));
 
-  return _react.default.createElement(_View.default, _extends({}, other, {
-    accessibilityRole: "progressbar",
-    accessibilityValue: accessibilityValue,
-    ref: forwardedRef,
-    style: [styles.container, style]
-  }), _react.default.createElement(_View.default, {
-    children: svg,
-    style: [typeof size === 'number' ? {
-      height: size,
-      width: size
-    } : indicatorSizes[size], styles.animation, !animating && styles.animationPause, !animating && hidesWhenStopped && styles.hidesWhenStopped]
-  }));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, _extends({}, other, {
+      accessibilityRole: "progressbar",
+      accessibilityValue: accessibilityValue,
+      ref: forwardedRef,
+      style: [styles.container, style]
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, {
+      children: svg,
+      style: [typeof size === 'number' ? {
+        height: size,
+        width: size
+      } : indicatorSizes[size], styles.animation, !animating && styles.animationPause, !animating && hidesWhenStopped && styles.hidesWhenStopped]
+    }))
+  );
 });
 ActivityIndicator.displayName = 'ActivityIndicator';
 

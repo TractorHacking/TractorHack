@@ -26,7 +26,9 @@ var emptyObject = {};
  * Very simple drop-in replacement for <Image> which supports nesting views.
  */
 
-var ImageBackground = (0, React.forwardRef)(function (props, forwardedRef) {
+var ImageBackground =
+/*#__PURE__*/
+(0, React.forwardRef)(function (props, forwardedRef) {
   var children = props.children,
       _props$style = props.style,
       style = _props$style === void 0 ? emptyObject : _props$style,
@@ -38,24 +40,29 @@ var ImageBackground = (0, React.forwardRef)(function (props, forwardedRef) {
       height = _StyleSheet$flatten.height,
       width = _StyleSheet$flatten.width;
 
-  return React.createElement(_View.default, {
-    ref: forwardedRef,
-    style: style
-  }, React.createElement(_Image.default, _extends({}, rest, {
-    ref: imageRef,
-    style: [_StyleSheet.default.absoluteFill, {
-      // Temporary Workaround:
-      // Current (imperfect yet) implementation of <Image> overwrites width and height styles
-      // (which is not quite correct), and these styles conflict with explicitly set styles
-      // of <ImageBackground> and with our internal layout model here.
-      // So, we have to proxy/reapply these styles explicitly for actual <Image> component.
-      // This workaround should be removed after implementing proper support of
-      // intrinsic content size of the <Image>.
-      width: width,
-      height: height,
-      zIndex: -1
-    }, imageStyle]
-  })), children);
+  return (
+    /*#__PURE__*/
+    React.createElement(_View.default, {
+      ref: forwardedRef,
+      style: style
+    },
+    /*#__PURE__*/
+    React.createElement(_Image.default, _extends({}, rest, {
+      ref: imageRef,
+      style: [_StyleSheet.default.absoluteFill, {
+        // Temporary Workaround:
+        // Current (imperfect yet) implementation of <Image> overwrites width and height styles
+        // (which is not quite correct), and these styles conflict with explicitly set styles
+        // of <ImageBackground> and with our internal layout model here.
+        // So, we have to proxy/reapply these styles explicitly for actual <Image> component.
+        // This workaround should be removed after implementing proper support of
+        // intrinsic content size of the <Image>.
+        width: width,
+        height: height,
+        zIndex: -1
+      }, imageStyle]
+    })), children)
+  );
 });
 ImageBackground.displayName = 'ImageBackground';
 var _default = ImageBackground;

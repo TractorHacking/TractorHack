@@ -29,14 +29,19 @@ var cssFunction = function () {
   return 'env';
 }();
 
-var SafeAreaView = (0, _react.forwardRef)(function (props, ref) {
+var SafeAreaView =
+/*#__PURE__*/
+(0, _react.forwardRef)(function (props, ref) {
   var style = props.style,
       rest = _objectWithoutPropertiesLoose(props, ["style"]);
 
-  return _react.default.createElement(_View.default, _extends({}, rest, {
-    ref: ref,
-    style: _StyleSheet.default.compose(styles.root, style)
-  }));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_View.default, _extends({}, rest, {
+      ref: ref,
+      style: _StyleSheet.default.compose(styles.root, style)
+    }))
+  );
 });
 SafeAreaView.displayName = 'SafeAreaView';
 
