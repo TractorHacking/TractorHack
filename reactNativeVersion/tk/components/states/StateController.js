@@ -19,18 +19,24 @@ class StateController extends React.Component {
     this.setState({appState : newState});
   }
   
+  splash() {
+    return (
+      <View style = {styles.centerView}>
+        <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
+          <Image
+            source = {{uri : logo}}
+            style = {styles.splashImg}
+          />
+        </Pressable>
+      </View>
+    );
+  }
+  
   render() {
     switch (this.state.appState) {
       case 'splash' :
         return (
-          <View style = {styles.centerView}>
-            <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
-              <Image
-                source = {{uri : logo}}
-                style = {styles.splashImg}
-              />
-            </Pressable>
-          </View>
+          this.splash()
         );
         break;
       case 'bluetooth' :
@@ -51,7 +57,7 @@ class StateController extends React.Component {
       case 'errorsnap' :
         return (
           <ErrorSnapshot changeAppState = {this.changeAppState} />
-        )
+        );
         break;
     };
   }

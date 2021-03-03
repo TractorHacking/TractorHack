@@ -86,6 +86,9 @@ const styles = StyleSheet.create({
   paddedCenter : {
     padding : 10,
     alignItems : 'center'
+  },
+  titleCardView : {
+    backgroundColor : '#FFD791'
   }
   
 });
