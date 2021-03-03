@@ -20,10 +20,10 @@ class VehicleInformation extends React.Component {
     let x =
       {
         make : "             John Deere",
-        model : "                  504 SE",
-        year : "                         1998",
-        engine : "                         87",
-        vin : "                            540",
+        model : "                   504 SE",
+        year : "                          1998",
+        engine : "     2.9L 3 Cylinder",
+        vin : "                F25453212",
       };
     
     return x;
