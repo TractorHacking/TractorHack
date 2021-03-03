@@ -109,7 +109,7 @@ class LiveDiag extends React.Component {
     return (
       <View>
         <HeaderBar title = "Live Diagnostic Data" />
-        <TitleCard content = {() => <Tractor />}/>
+        <TitleCard content = {() => <Tractor />} backButtonAction = {()=> null}/>
         <Button title = "Disconnect"
                 onPress = {() => {this.props.changeAppState('splash')}}
         />
