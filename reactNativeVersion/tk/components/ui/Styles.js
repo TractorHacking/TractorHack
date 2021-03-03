@@ -88,7 +88,11 @@ const styles = StyleSheet.create({
     alignItems : 'center'
   },
   titleCardView : {
-    backgroundColor : '#FFD791'
+    backgroundColor : '#FFFFFF'
+  },
+  backImg : {
+    width : 40,
+    height : 40
   }
   
 });

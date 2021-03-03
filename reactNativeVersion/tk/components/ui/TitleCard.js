@@ -12,7 +12,10 @@ class TitleCard extends Component {
     return (
       <View style = {styles.titleCardView}>
         <Pressable onPressIn = {()=>{0}} >
-          <Image source = {{uri : back}}/>
+          <Image 
+            source = {{uri : back}}
+            style = {styles.backImg}
+          />
         </Pressable>
         {this.props.content()}
       </View>
