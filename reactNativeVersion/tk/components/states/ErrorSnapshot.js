@@ -72,10 +72,12 @@ class ErrorSnapshot extends React.Component {
     return (
       <View>
         <View>
-            <Button title = "<"
-                    onPress = {() => {this.props.changeAppState('connected')}}
-            />
             <HeaderBar title = "Vehicle History"/>
+            <View style = {styles.paddedCenter}>
+              <Button title = "<"
+                      onPress = {() => {this.props.changeAppState('connected')}}
+              />
+            </View>
             <Tractor />
         </View>
         <Button title = "Disconnect"

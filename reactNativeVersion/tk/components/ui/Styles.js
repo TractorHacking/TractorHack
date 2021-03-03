@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     height : 77
   },
   splashImg : {
-    width : 175, 
-    height : 117
+    width : 250, 
+    height : 271
   },
   btTractorButton : {
     padding : 10,
@@ -81,7 +81,11 @@ const styles = StyleSheet.create({
     
   },
   centerView : {
-    alignItems: 'center'
+    alignItems : 'center'
+  },
+  paddedCenter : {
+    padding : 10,
+    alignItems : 'center'
   }
   
 });

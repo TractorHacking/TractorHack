@@ -14,17 +14,17 @@ class ConnectedRoot extends React.Component {
       <View>
         <HeaderBar title = "Connected"/>
         <Tractor />
-        <View style = {styles.padded}>
+        <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
                   onPress = {() => {this.props.changeAppState('splash')}}
           />
         </View>
-        <View style = {styles.padded}>
+        <View style = {styles.paddedCenter}>
           <Button title = "Live Diag Data"
                   onPress = {() => {this.props.changeAppState('live')}}
           />
         </View>
-        <View style = {styles.padded}>
+        <View style = {styles.paddedCenter}>
           <Button title = "Diagnostic History"
                   onPress = {() => {this.props.changeAppState('errorsnap')}}
           />

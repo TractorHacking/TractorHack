@@ -29,9 +29,6 @@ class StateController extends React.Component {
                 source = {{uri : logo}}
                 style = {styles.splashImg}
               />
-              <Button title = "Connect" 
-                      onPress = {() => {this.changeAppState('bluetooth')}}
-              />
             </Pressable>
           </View>
         );
