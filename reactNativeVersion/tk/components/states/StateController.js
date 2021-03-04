@@ -4,8 +4,8 @@ import BTConnect from './BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
 import ErrorSnapshot from './ErrorSnapshot.js';
-import logo from '../../assets/logo.png';
 import styles from '../ui/Styles.js';
+import Splash from './Splash.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -19,24 +19,11 @@ class StateController extends React.Component {
     this.setState({appState : newState});
   }
   
-  splash() {
-    return (
-      <View style = {styles.centerView}>
-        <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
-          <Image
-            source = {{uri : logo}}
-            style = {styles.splashImg}
-          />
-        </Pressable>
-      </View>
-    );
-  }
-  
   render() {
     switch (this.state.appState) {
       case 'splash' :
         return (
-          this.splash()
+          <Splash changeAppState = {this.changeAppState} />
         );
         break;
       case 'bluetooth' :

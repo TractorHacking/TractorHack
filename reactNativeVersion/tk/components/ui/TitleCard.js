@@ -13,7 +13,7 @@ class TitleCard extends Component {
     return (
       <View style = {styles.titleCardView}>
         <ImageBackground source={well} resizeMode = "stretch">
-          <Pressable onPressIn = {this.props.backButtonAction()} >
+          <Pressable onPressIn = {this.props.backButtonAction} >
             <Image 
               source = {{uri : back}}
               style = {styles.backImg}
