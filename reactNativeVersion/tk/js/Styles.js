@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -53,6 +54,19 @@ const styles = StyleSheet.create({
   },
   title : {
     
+  },
+
+  connectButton :{
+
+  borderWidth:1,
+      borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    justifyContent:'center',
+    width:225,
+    height:225,
+    backgroundColor:'#21b1fb',
+    borderRadius:150,
+
   }
   
   

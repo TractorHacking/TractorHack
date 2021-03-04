@@ -1,10 +1,11 @@
 import React from 'react';
-import {Image, Pressable, Text, Button} from 'react-native';
+import {Image, Pressable, Text, Button, TouchableOpacity} from 'react-native';
 import BTConnect from './blueTooth/BTConnect.js';
 import ConnectedRoot from './ConnectedRoot.js';
 import LiveDiag from './LiveDiag.js';
 import logo from '../assets/logo.png';
 import styles from './Styles.js';
+import RadialGradient from 'react-native-web';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -22,15 +23,14 @@ class StateController extends React.Component {
     switch (this.state.appState) {
       case 'splash' :
         return (
-          <Pressable onPressIn = {() => {this.changeAppState('bluetooth')}}>
-          <Image
-            source = {{uri : logo}}
-            style = {styles.splashImg}
-          />
-          <Button title = "Connect" 
-                  onPress = {() => {this.changeAppState('bluetooth')}}
-          />
-          </Pressable>
+
+            <TouchableOpacity onPressIn={() => {this.changeAppState('bluetooth')}}
+                              style={styles.connectButton}>
+              <Image style={styles.splashImg} source={{uri: logo}}/>
+              <text style={{color:'white',
+                font:"bold 30px arial,serif"}}> Connect</text>
+            </TouchableOpacity>
+
         );
         break;
       case 'bluetooth' :
