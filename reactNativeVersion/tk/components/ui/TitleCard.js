@@ -8,11 +8,13 @@ class TitleCard extends Component {
   constructor(props) {
     super(props);
   }
+  // <ImageBackground source = {well} resizeMode = "stretch">
+  // </ImageBackground>
   
   render() {
     return (
       <View style = {styles.titleCardView}>
-        <ImageBackground source={well} resizeMode = "stretch">
+        
           <Pressable onPressIn = {this.props.backButtonAction} >
             <Image 
               source = {{uri : back}}
@@ -20,7 +22,7 @@ class TitleCard extends Component {
             />
           </Pressable>
           {this.props.content()}
-        </ImageBackground>
+        
       </View>
     );
   }

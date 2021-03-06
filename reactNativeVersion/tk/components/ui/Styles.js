@@ -88,11 +88,23 @@ const styles = StyleSheet.create({
     alignItems : 'center'
   },
   titleCardView : {
-    backgroundColor : '#FFFFFF'
+    flex : 1,
+    backgroundColor : '#FFFFFF',
+    borderWidth : 'medium',
+    borderColor : '#eeeeee',
+    width : 440,
+    borderRadius : '0.5em',
+ //   alignItems : 'center',
+    alignContent : 'center',
+    padding : '1em',
+    margin : '1em'
   },
   backImg : {
-    width : 40,
-    height : 40
+    width : 32,
+    height : 32
+  },
+  liveDiagView : {
+    
   }
   
 });
