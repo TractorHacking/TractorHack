@@ -4,6 +4,7 @@ import styles from '../ui/Styles.js';
 import DiagFormatter from '../ui/DiagFormatter';
 import Tractor from '../ui/TractorImg.js';
 import HeaderBar from '../ui/HeaderBar.js';
+import TitleCard from '../ui/TitleCard.js';
 
 class LiveDiag extends React.Component {
   constructor(props) {
@@ -108,11 +109,16 @@ class LiveDiag extends React.Component {
     return (
       <View>
         <HeaderBar title = "Live Diagnostic Data" />
-        <Tractor />
-        <Button title = "Disconnect"
-                onPress = {() => {this.props.changeAppState('splash')}}
-        />
-        <DiagFormatter data = {this.state.data} />
+        <View style = {styles.centerView}>
+          <TitleCard 
+            content = {() => <Tractor />} 
+            backButtonAction = {() => {this.props.changeAppState('connected')}}
+          />
+          <Button title = "Disconnect"
+                  onPress = {() => {this.props.changeAppState('splash')}}
+          />
+          <DiagFormatter data = {this.state.data} />
+        </View>
       </View>
     );
   }
