@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Text, View} from 'react-native';
 import styles from '../ui/Styles.js';
 import Tractor from '../ui/TractorImg.js';
+import VehicleInfo from './VehicleInformation.js';
 import HeaderBar from '../ui/HeaderBar.js';
 
 class ConnectedRoot extends React.Component {
@@ -14,6 +15,7 @@ class ConnectedRoot extends React.Component {
       <View>
         <HeaderBar title = "Connected"/>
         <Tractor />
+	<VehicleInfo />
         <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
                   onPress = {() => {this.props.changeAppState('splash')}}
