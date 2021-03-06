@@ -59,7 +59,7 @@ class VehicleInformation extends React.Component {
   render() {
     return (
       <View>
-        <Text style = {styles.title}> Live Diagnostic Data </Text>
+        <Text style = {styles.title}> Vehicle Information </Text>
         <Tractor />
         />
         <DiagFormatter data = {this.state.data} />
@@ -68,4 +68,4 @@ class VehicleInformation extends React.Component {
   }
 }
 
-export default LiveDiag;
+export default VehicleInformation;
