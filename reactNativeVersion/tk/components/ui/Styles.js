@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     height : 77
   },
   splashImg : {
-    width : 250, 
-    height : 271
+    width : 175, 
+    height : 117
   },
   btTractorButton : {
     padding : 10,
@@ -105,6 +105,18 @@ const styles = StyleSheet.create({
   },
   liveDiagView : {
     
+  },
+  connectButton : {
+
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    justifyContent:'center',
+    width:225,
+    height:225,
+    backgroundColor:'#21b1fb',
+    borderRadius:150,
+
   }
   
 });

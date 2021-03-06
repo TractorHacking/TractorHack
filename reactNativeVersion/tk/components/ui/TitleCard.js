@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Pressable, Image, ImageBackground} from 'react-native';
+import {View, Text, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import styles from './Styles.js';
 import back from '../../assets/back.png';
 import well from '../../assets/box.png';
@@ -8,19 +8,17 @@ class TitleCard extends Component {
   constructor(props) {
     super(props);
   }
-  // <ImageBackground source = {well} resizeMode = "stretch">
-  // </ImageBackground>
   
   render() {
     return (
       <View style = {styles.titleCardView}>
         
-          <Pressable onPressIn = {this.props.backButtonAction} >
+          <TouchableOpacity onPressIn = {this.props.backButtonAction} >
             <Image 
               source = {{uri : back}}
               style = {styles.backImg}
             />
-          </Pressable>
+          </TouchableOpacity>
           {this.props.content()}
         
       </View>
