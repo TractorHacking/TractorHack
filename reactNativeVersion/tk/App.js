@@ -9,4 +9,6 @@ export default function App() {
       <StateController />       
     </View>
   );
+
+  <homeCard />
 }
