@@ -1,19 +1,17 @@
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, TextInput, View} from 'react-native';
 import styles from '../ui/Styles.js';
 import Tractor from '../ui/TractorImg.js';
 import VehicleInfo from './VehicleInformation.js';
 import HeaderBar from '../ui/HeaderBar.js';
-<<<<<<< Updated upstream
-=======
 import TitleCard from '../ui/TitleCard.js';
 import TitleCardNoButton from '../ui/TitleCardNoButton.js';
-
->>>>>>> Stashed changes
 
 class ConnectedRoot extends React.Component {
   constructor(props) {
     super(props);
+    this.tractorName = "Tractor Name Here";
+    
   }
   titleCard2() {
     
@@ -26,14 +24,26 @@ class ConnectedRoot extends React.Component {
 
 
   
+  titleCard() {
+    
+    return (
+      <View>
+        <HeaderBar title = "Connected"/>
+        <TextInput
+          style = {styles.inpTracName}
+          onChangeText = {() => null}
+          defaultView = {this.tractorName}
+          placeholder = "Tractor Name Here"
+          clearButtonMode = "always"
+        />
+        <Tractor />
+      </View>
+    );
+  }
+  
   render() {
     return (
       <View>
-<<<<<<< Updated upstream
-        <HeaderBar title = "Connected"/>
-        <Tractor />
-	<VehicleInfo />
-=======
         <HeaderBar title = "Vehicle Data"/>
         <View style = {styles.centerView}>
           <TitleCard 
@@ -44,7 +54,6 @@ class ConnectedRoot extends React.Component {
             content = {() => this.titleCard2()}
           />
         </View>
->>>>>>> Stashed changes
         <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
                   onPress = {() => {this.props.changeAppState('splash')}}

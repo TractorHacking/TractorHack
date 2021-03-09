@@ -67,9 +67,9 @@ class Accordion extends React.Component {
     }
   }
   
-  singleGroup(sGroup) {
+  singleGroup(sGroup, listIndex) {
     return (
-    <View style = {styles.catGroupView} key = {sGroup.title + sGroup.value}>
+    <View style = {styles.catGroupView} key = {sGroup.title + sGroup.value + listIndex}>
       <Text style = {styles.catGroup}>
         {sGroup.title + "   " + sGroup.value}
       </Text>
@@ -86,9 +86,9 @@ class Accordion extends React.Component {
     let group = [];
     
     if (this.state.expanded) {
-      cat.group.forEach((gp) => {group.push(this.singleGroup(gp))});
+      cat.group.forEach((gp, listIndex) => {group.push(this.singleGroup(gp, listIndex))});
       if (cat.status != null)
-        group.push(<Button title = {this.state.arr[this.state.text % 2]} onPress = {() => this.setState({text: this.state.text+1})}/>);
+        group.push(<Button key = {cat.catTitle + "b" + group.length} title = {this.state.arr[this.state.text % 2]} onPress = {() => this.setState({text: this.state.text+1})}/>);
     }
     else {
       group.push(<View key = {cat.catTitle + "empty"}></View>);
