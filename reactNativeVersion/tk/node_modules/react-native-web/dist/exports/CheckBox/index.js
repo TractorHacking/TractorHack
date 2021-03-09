@@ -22,7 +22,9 @@ import { forwardRef } from 'react';
 import createElement from '../createElement';
 import StyleSheet from '../StyleSheet';
 import View from '../View';
-var CheckBox = forwardRef(function (props, forwardedRef) {
+var CheckBox =
+/*#__PURE__*/
+forwardRef(function (props, forwardedRef) {
   var color = props.color,
       disabled = props.disabled,
       onChange = props.onChange,
@@ -38,7 +40,9 @@ var CheckBox = forwardRef(function (props, forwardedRef) {
     onValueChange && onValueChange(value);
   }
 
-  var fakeControl = React.createElement(View, {
+  var fakeControl =
+  /*#__PURE__*/
+  React.createElement(View, {
     style: [styles.fakeControl, value && styles.fakeControlChecked, // custom color
     value && color && {
       backgroundColor: color,
@@ -53,9 +57,13 @@ var CheckBox = forwardRef(function (props, forwardedRef) {
     style: [styles.nativeControl, styles.cursorInherit],
     type: 'checkbox'
   });
-  return React.createElement(View, _extends({}, other, {
-    style: [styles.root, style, disabled && styles.cursorDefault]
-  }), fakeControl, nativeControl);
+  return (
+    /*#__PURE__*/
+    React.createElement(View, _extends({}, other, {
+      accessibilityDisabled: disabled,
+      style: [styles.root, style, disabled && styles.cursorDefault]
+    }), fakeControl, nativeControl)
+  );
 });
 CheckBox.displayName = 'CheckBox';
 var styles = StyleSheet.create({
@@ -95,7 +103,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#AAB8C2',
     borderColor: '#AAB8C2'
   },
-  nativeControl: _objectSpread({}, StyleSheet.absoluteFillObject, {
+  nativeControl: _objectSpread(_objectSpread({}, StyleSheet.absoluteFillObject), {}, {
     height: '100%',
     margin: 0,
     opacity: 0,

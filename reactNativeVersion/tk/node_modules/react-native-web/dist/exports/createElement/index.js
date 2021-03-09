@@ -25,7 +25,10 @@ var createElement = function createElement(component, props) {
     children[_key - 2] = arguments[_key];
   }
 
-  return React.createElement.apply(React, [Component, domProps].concat(children));
+  return (
+    /*#__PURE__*/
+    React.createElement.apply(React, [Component, domProps].concat(children))
+  );
 };
 
 export default createElement;

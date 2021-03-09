@@ -11,7 +11,9 @@
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -26,7 +28,7 @@ import View from '../../../exports/View';
 import VirtualizedList from '../VirtualizedList';
 import invariant from 'fbjs/lib/invariant';
 
-var defaultProps = _objectSpread({}, VirtualizedList.defaultProps, {
+var defaultProps = _objectSpread(_objectSpread({}, VirtualizedList.defaultProps), {}, {
   numColumns: 1,
 
   /**
@@ -319,18 +321,23 @@ function (_React$PureComponent) {
         var _item2 = info.item,
             _index = info.index;
         invariant(Array.isArray(_item2), 'Expected array of items with numColumns > 1');
-        return React.createElement(View, {
-          style: StyleSheet.compose(styles.row, columnWrapperStyle)
-        }, _item2.map(function (it, kk) {
-          var element = renderItem({
-            item: it,
-            index: _index * numColumns + kk,
-            separators: info.separators
-          });
-          return element != null ? React.createElement(React.Fragment, {
-            key: kk
-          }, element) : null;
-        }));
+        return (
+          /*#__PURE__*/
+          React.createElement(View, {
+            style: StyleSheet.compose(styles.row, columnWrapperStyle)
+          }, _item2.map(function (it, kk) {
+            var element = renderItem({
+              item: it,
+              index: _index * numColumns + kk,
+              separators: info.separators
+            });
+            return element != null ?
+            /*#__PURE__*/
+            React.createElement(React.Fragment, {
+              key: kk
+            }, element) : null;
+          }))
+        );
       } else {
         return renderItem(info);
       }
@@ -393,7 +400,7 @@ function (_React$PureComponent) {
     v.item.forEach(function (item, ii) {
       invariant(v.index != null, 'Missing index!');
       var index = v.index * numColumns + ii;
-      arr.push(_objectSpread({}, v, {
+      arr.push(_objectSpread(_objectSpread({}, v), {}, {
         item: item,
         key: keyExtractor(item, index),
         index: index
@@ -429,14 +436,17 @@ function (_React$PureComponent) {
   };
 
   _proto.render = function render() {
-    return React.createElement(VirtualizedList, _extends({}, this.props, {
-      renderItem: this._renderItem,
-      getItem: this._getItem,
-      getItemCount: this._getItemCount,
-      keyExtractor: this._keyExtractor,
-      ref: this._captureRef,
-      viewabilityConfigCallbackPairs: this._virtualizedListPairs
-    }));
+    return (
+      /*#__PURE__*/
+      React.createElement(VirtualizedList, _extends({}, this.props, {
+        renderItem: this._renderItem,
+        getItem: this._getItem,
+        getItemCount: this._getItemCount,
+        keyExtractor: this._keyExtractor,
+        ref: this._captureRef,
+        viewabilityConfigCallbackPairs: this._virtualizedListPairs
+      }))
+    );
   };
 
   return FlatList;

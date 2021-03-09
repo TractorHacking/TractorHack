@@ -34,7 +34,10 @@ var createElement = function createElement(component, props) {
     children[_key - 2] = arguments[_key];
   }
 
-  return _react.default.createElement.apply(_react.default, [Component, domProps].concat(children));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement.apply(_react.default, [Component, domProps].concat(children))
+  );
 };
 
 var _default = createElement;

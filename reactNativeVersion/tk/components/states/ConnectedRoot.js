@@ -28,7 +28,6 @@ class ConnectedRoot extends React.Component {
     
     return (
       <View>
-        <HeaderBar title = "Connected"/>
         <TextInput
           style = {styles.inpTracName}
           onChangeText = {() => null}

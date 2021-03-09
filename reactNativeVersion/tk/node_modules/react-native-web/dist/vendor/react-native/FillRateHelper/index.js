@@ -113,7 +113,7 @@ function () {
 
     var total_time_spent = performanceNow() - start;
 
-    var info = _objectSpread({}, this._info, {
+    var info = _objectSpread(_objectSpread({}, this._info), {}, {
       total_time_spent: total_time_spent
     });
 

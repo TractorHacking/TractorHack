@@ -13,7 +13,9 @@ var _react = require("react");
  *
  * 
  */
-var TextAncestorContext = (0, _react.createContext)(false);
+var TextAncestorContext =
+/*#__PURE__*/
+(0, _react.createContext)(false);
 var _default = TextAncestorContext;
 exports.default = _default;
 module.exports = exports.default;

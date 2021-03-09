@@ -13,7 +13,9 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import StyleSheet from '../StyleSheet';
 import View from '../View';
 import React, { forwardRef, useEffect, useRef } from 'react';
-var ProgressBar = forwardRef(function (props, ref) {
+var ProgressBar =
+/*#__PURE__*/
+forwardRef(function (props, ref) {
   var _props$color = props.color,
       color = _props$color === void 0 ? '#1976D2' : _props$color,
       _props$indeterminate = props.indeterminate,
@@ -38,23 +40,28 @@ var ProgressBar = forwardRef(function (props, ref) {
       });
     }
   }, [indeterminate, percentageProgress, progressRef]);
-  return React.createElement(View, _extends({}, other, {
-    accessibilityRole: "progressbar",
-    accessibilityValue: {
-      max: 100,
-      min: 0,
-      now: indeterminate ? null : percentageProgress
-    },
-    ref: ref,
-    style: [styles.track, style, {
-      backgroundColor: trackColor
-    }]
-  }), React.createElement(View, {
-    ref: progressRef,
-    style: [styles.progress, indeterminate && styles.animation, {
-      backgroundColor: color
-    }]
-  }));
+  return (
+    /*#__PURE__*/
+    React.createElement(View, _extends({}, other, {
+      accessibilityRole: "progressbar",
+      accessibilityValue: {
+        max: 100,
+        min: 0,
+        now: indeterminate ? null : percentageProgress
+      },
+      ref: ref,
+      style: [styles.track, style, {
+        backgroundColor: trackColor
+      }]
+    }),
+    /*#__PURE__*/
+    React.createElement(View, {
+      ref: progressRef,
+      style: [styles.progress, indeterminate && styles.animation, {
+        backgroundColor: color
+      }]
+    }))
+  );
 });
 ProgressBar.displayName = 'ProgressBar';
 var styles = StyleSheet.create({

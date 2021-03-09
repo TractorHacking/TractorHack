@@ -9,6 +9,12 @@
  */
 'use strict';
 
+function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -19,7 +25,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 import Batchinator from '../Batchinator';
 import FillRateHelper from '../FillRateHelper';
@@ -151,7 +159,7 @@ function (_React$PureComponent) {
 
     for (var _index = 0; _index < itemCount; _index++) {
       if (getItem(data, _index) === item) {
-        this.scrollToIndex(_objectSpread({}, params, {
+        this.scrollToIndex(_objectSpread(_objectSpread({}, params), {}, {
           index: _index
         }));
         break;
@@ -361,12 +369,19 @@ function (_React$PureComponent) {
 
       if (_this._isNestedWithSameOrientation()) {
         // $FlowFixMe - Typing ReactNativeComponent revealed errors
-        return React.createElement(View, props);
+        return (
+          /*#__PURE__*/
+          React.createElement(View, props)
+        );
       } else if (onRefresh) {
         invariant(typeof props.refreshing === 'boolean', '`refreshing` prop must be set as a boolean in order to use `onRefresh`, but got `' + JSON.stringify(props.refreshing) + '`');
-        return (// $FlowFixMe Invalid prop usage
+        return (
+          /*#__PURE__*/
+          // $FlowFixMe Invalid prop usage
           React.createElement(ScrollView, _extends({}, props, {
-            refreshControl: props.refreshControl == null ? React.createElement(RefreshControl, {
+            refreshControl: props.refreshControl == null ?
+            /*#__PURE__*/
+            React.createElement(RefreshControl, {
               refreshing: props.refreshing,
               onRefresh: onRefresh,
               progressViewOffset: props.progressViewOffset
@@ -375,7 +390,10 @@ function (_React$PureComponent) {
         );
       } else {
         // $FlowFixMe Invalid prop usage
-        return React.createElement(ScrollView, props);
+        return (
+          /*#__PURE__*/
+          React.createElement(ScrollView, props)
+        );
       }
     };
 
@@ -383,7 +401,7 @@ function (_React$PureComponent) {
       var curr = _this._frames[cellKey];
 
       if (curr) {
-        _this._frames[cellKey] = _objectSpread({}, curr, {
+        _this._frames[cellKey] = _objectSpread(_objectSpread({}, curr), {}, {
           inLayout: false
         });
       }
@@ -631,19 +649,8 @@ function (_React$PureComponent) {
 
             var someChildHasMore = false; // For each cell, need to check whether any child list in it has more elements to render
 
-            for (var _iterator = childListKeys, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-              var _ref;
-
-              if (_isArray) {
-                if (_i >= _iterator.length) break;
-                _ref = _iterator[_i++];
-              } else {
-                _i = _iterator.next();
-                if (_i.done) break;
-                _ref = _i.value;
-              }
-
-              var childKey = _ref;
+            for (var _iterator = _createForOfIteratorHelperLoose(childListKeys), _step; !(_step = _iterator()).done;) {
+              var childKey = _step.value;
 
               var childList = _this._nestedChildLists.get(childKey);
 
@@ -843,7 +850,9 @@ function (_React$PureComponent) {
         stickyHeaderIndices.push(cells.length);
       }
 
-      cells.push(React.createElement(CellRenderer, {
+      cells.push(
+      /*#__PURE__*/
+      React.createElement(CellRenderer, {
         CellRendererComponent: CellRendererComponent,
         ItemSeparatorComponent: ii < end ? ItemSeparatorComponent : undefined,
         cellKey: key,
@@ -860,8 +869,8 @@ function (_React$PureComponent) {
         },
         onUnmount: _this2._onCellUnmount,
         parentProps: _this2.props,
-        ref: function ref(_ref2) {
-          _this2._cellRefs[key] = _ref2;
+        ref: function ref(_ref) {
+          _this2._cellRefs[key] = _ref;
         }
       }));
       prevCellKey = key;
@@ -909,12 +918,20 @@ function (_React$PureComponent) {
         stickyHeaderIndices.push(0);
       }
 
-      var element = React.isValidElement(ListHeaderComponent) ? ListHeaderComponent : // $FlowFixMe
+      var element =
+      /*#__PURE__*/
+      React.isValidElement(ListHeaderComponent) ? ListHeaderComponent :
+      /*#__PURE__*/
+      // $FlowFixMe
       React.createElement(ListHeaderComponent, null);
-      cells.push(React.createElement(VirtualizedCellWrapper, {
+      cells.push(
+      /*#__PURE__*/
+      React.createElement(VirtualizedCellWrapper, {
         cellKey: this._getCellKey() + '-header',
         key: "$header"
-      }, React.createElement(View, {
+      },
+      /*#__PURE__*/
+      React.createElement(View, {
         onLayout: this._onLayoutHeader,
         style: StyleSheet.compose(inversionStyle, this.props.ListHeaderComponentStyle)
       }, // $FlowFixMe - Typing ReactNativeComponent revealed errors
@@ -944,24 +961,28 @@ function (_React$PureComponent) {
 
           for (var ii = firstAfterInitial - 1; ii > lastInitialIndex; ii--) {
             if (stickyIndicesFromProps.has(ii + stickyOffset)) {
-              var _ref3, _ref4;
+              var _ref2, _ref3;
 
               var initBlock = this._getFrameMetricsApprox(lastInitialIndex);
 
               var stickyBlock = this._getFrameMetricsApprox(ii);
 
               var leadSpace = stickyBlock.offset - initBlock.offset - (this.props.initialScrollIndex ? 0 : initBlock.length);
-              cells.push(React.createElement(View, {
+              cells.push(
+              /*#__PURE__*/
+              React.createElement(View, {
                 key: "$sticky_lead",
-                style: (_ref3 = {}, _ref3[spacerKey] = leadSpace, _ref3)
+                style: (_ref2 = {}, _ref2[spacerKey] = leadSpace, _ref2)
               }));
 
               this._pushCells(cells, stickyHeaderIndices, stickyIndicesFromProps, ii, ii, inversionStyle);
 
               var trailSpace = this._getFrameMetricsApprox(first).offset - (stickyBlock.offset + stickyBlock.length);
-              cells.push(React.createElement(View, {
+              cells.push(
+              /*#__PURE__*/
+              React.createElement(View, {
                 key: "$sticky_trail",
-                style: (_ref4 = {}, _ref4[spacerKey] = trailSpace, _ref4)
+                style: (_ref3 = {}, _ref3[spacerKey] = trailSpace, _ref3)
               }));
               insertedStickySpacer = true;
               break;
@@ -970,15 +991,17 @@ function (_React$PureComponent) {
         }
 
         if (!insertedStickySpacer) {
-          var _ref5;
+          var _ref4;
 
           var _initBlock = this._getFrameMetricsApprox(lastInitialIndex);
 
           var firstSpace = this._getFrameMetricsApprox(first).offset - (_initBlock.offset + _initBlock.length);
 
-          cells.push(React.createElement(View, {
+          cells.push(
+          /*#__PURE__*/
+          React.createElement(View, {
             key: "$lead_spacer",
-            style: (_ref5 = {}, _ref5[spacerKey] = firstSpace, _ref5)
+            style: (_ref4 = {}, _ref4[spacerKey] = firstSpace, _ref4)
           }));
         }
       }
@@ -991,7 +1014,7 @@ function (_React$PureComponent) {
       }
 
       if (!isVirtualizationDisabled && last < itemCount - 1) {
-        var _ref6;
+        var _ref5;
 
         var lastFrame = this._getFrameMetricsApprox(last); // Without getItemLayout, we limit our tail spacer to the _highestMeasuredFrameIndex to
         // prevent the user for hyperscrolling into un-measured area because otherwise content will
@@ -1003,16 +1026,24 @@ function (_React$PureComponent) {
         var endFrame = this._getFrameMetricsApprox(end);
 
         var tailSpacerLength = endFrame.offset + endFrame.length - (lastFrame.offset + lastFrame.length);
-        cells.push(React.createElement(View, {
+        cells.push(
+        /*#__PURE__*/
+        React.createElement(View, {
           key: "$tail_spacer",
-          style: (_ref6 = {}, _ref6[spacerKey] = tailSpacerLength, _ref6)
+          style: (_ref5 = {}, _ref5[spacerKey] = tailSpacerLength, _ref5)
         }));
       }
     } else if (ListEmptyComponent) {
-      var _element = React.isValidElement(ListEmptyComponent) ? ListEmptyComponent : // $FlowFixMe
+      var _element =
+      /*#__PURE__*/
+      React.isValidElement(ListEmptyComponent) ? ListEmptyComponent :
+      /*#__PURE__*/
+      // $FlowFixMe
       React.createElement(ListEmptyComponent, null);
 
-      cells.push(React.cloneElement(_element, {
+      cells.push(
+      /*#__PURE__*/
+      React.cloneElement(_element, {
         key: '$empty',
         onLayout: function onLayout(event) {
           _this3._onLayoutEmpty(event);
@@ -1026,20 +1057,28 @@ function (_React$PureComponent) {
     }
 
     if (ListFooterComponent) {
-      var _element2 = React.isValidElement(ListFooterComponent) ? ListFooterComponent : // $FlowFixMe
+      var _element2 =
+      /*#__PURE__*/
+      React.isValidElement(ListFooterComponent) ? ListFooterComponent :
+      /*#__PURE__*/
+      // $FlowFixMe
       React.createElement(ListFooterComponent, null);
 
-      cells.push(React.createElement(VirtualizedCellWrapper, {
+      cells.push(
+      /*#__PURE__*/
+      React.createElement(VirtualizedCellWrapper, {
         cellKey: this._getCellKey() + '-footer',
         key: "$footer"
-      }, React.createElement(View, {
+      },
+      /*#__PURE__*/
+      React.createElement(View, {
         onLayout: this._onLayoutFooter,
         style: StyleSheet.compose(inversionStyle, this.props.ListFooterComponentStyle)
       }, // $FlowFixMe - Typing ReactNativeComponent revealed errors
       _element2)));
     }
 
-    var scrollProps = _objectSpread({}, this.props, {
+    var scrollProps = _objectSpread(_objectSpread({}, this.props), {}, {
       onContentSizeChange: this._onContentSizeChange,
       onLayout: this._onLayout,
       onScroll: this._onScroll,
@@ -1060,14 +1099,19 @@ function (_React$PureComponent) {
     }
 
     this._hasMore = this.state.last < this.props.getItemCount(this.props.data) - 1;
-    var ret = React.cloneElement((this.props.renderScrollComponent || this._defaultRenderScrollComponent)(scrollProps), {
+    var ret =
+    /*#__PURE__*/
+    React.cloneElement((this.props.renderScrollComponent || this._defaultRenderScrollComponent)(scrollProps), {
       ref: this._captureScrollRef
     }, cells);
 
     if (this.props.debug) {
-      return React.createElement(View, {
-        style: styles.debug
-      }, ret, this._renderDebugOverlay());
+      return (
+        /*#__PURE__*/
+        React.createElement(View, {
+          style: styles.debug
+        }, ret, this._renderDebugOverlay())
+      );
     } else {
       return ret;
     }
@@ -1135,19 +1179,8 @@ function (_React$PureComponent) {
     var childListKeys = this._cellKeysToChildListKeys.get(cellKey);
 
     if (childListKeys) {
-      for (var _iterator2 = childListKeys, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
-        var _ref7;
-
-        if (_isArray2) {
-          if (_i2 >= _iterator2.length) break;
-          _ref7 = _iterator2[_i2++];
-        } else {
-          _i2 = _iterator2.next();
-          if (_i2.done) break;
-          _ref7 = _i2.value;
-        }
-
-        var childKey = _ref7;
+      for (var _iterator2 = _createForOfIteratorHelperLoose(childListKeys), _step2; !(_step2 = _iterator2()).done;) {
+        var childKey = _step2.value;
 
         var childList = this._nestedChildLists.get(childKey);
 
@@ -1218,27 +1251,37 @@ function (_React$PureComponent) {
     var windowLen = frameLast.offset + frameLast.length - windowTop;
     var visTop = this._scrollMetrics.offset;
     var visLen = this._scrollMetrics.visibleLength;
-    return React.createElement(View, {
-      style: [styles.debugOverlayBase, styles.debugOverlay]
-    }, framesInLayout.map(function (f, ii) {
-      return React.createElement(View, {
-        key: 'f' + ii,
-        style: [styles.debugOverlayBase, styles.debugOverlayFrame, {
-          top: f.offset * normalize,
-          height: f.length * normalize
+    return (
+      /*#__PURE__*/
+      React.createElement(View, {
+        style: [styles.debugOverlayBase, styles.debugOverlay]
+      }, framesInLayout.map(function (f, ii) {
+        return (
+          /*#__PURE__*/
+          React.createElement(View, {
+            key: 'f' + ii,
+            style: [styles.debugOverlayBase, styles.debugOverlayFrame, {
+              top: f.offset * normalize,
+              height: f.length * normalize
+            }]
+          })
+        );
+      }),
+      /*#__PURE__*/
+      React.createElement(View, {
+        style: [styles.debugOverlayBase, styles.debugOverlayFrameLast, {
+          top: windowTop * normalize,
+          height: windowLen * normalize
         }]
-      });
-    }), React.createElement(View, {
-      style: [styles.debugOverlayBase, styles.debugOverlayFrameLast, {
-        top: windowTop * normalize,
-        height: windowLen * normalize
-      }]
-    }), React.createElement(View, {
-      style: [styles.debugOverlayBase, styles.debugOverlayFrameVis, {
-        top: visTop * normalize,
-        height: visLen * normalize
-      }]
-    }));
+      }),
+      /*#__PURE__*/
+      React.createElement(View, {
+        style: [styles.debugOverlayBase, styles.debugOverlayFrameVis, {
+          top: visTop * normalize,
+          height: visLen * normalize
+        }]
+      }))
+    );
   };
 
   _proto._selectLength = function _selectLength(metrics) {
@@ -1459,7 +1502,7 @@ function (_React$Component) {
   _proto2.updateSeparatorProps = function updateSeparatorProps(newProps) {
     this.setState(function (state) {
       return {
-        separatorProps: _objectSpread({}, state.separatorProps, {}, newProps)
+        separatorProps: _objectSpread(_objectSpread({}, state.separatorProps), newProps)
       };
     });
   };
@@ -1493,11 +1536,15 @@ function (_React$Component) {
     getItemLayout && !parentProps.debug && !fillRateHelper.enabled() ? undefined : this.props.onLayout; // NOTE: that when this is a sticky header, `onLayout` will get automatically extracted and
     // called explicitly by `ScrollViewStickyHeader`.
 
-    var itemSeparator = ItemSeparatorComponent && React.createElement(ItemSeparatorComponent, this.state.separatorProps);
+    var itemSeparator = ItemSeparatorComponent &&
+    /*#__PURE__*/
+    React.createElement(ItemSeparatorComponent, this.state.separatorProps);
     var cellStyle = inversionStyle ? horizontal ? [styles.rowReverse, inversionStyle] : [styles.columnReverse, inversionStyle] : horizontal ? [styles.row, inversionStyle] : inversionStyle;
 
     if (!CellRendererComponent) {
       return (
+        /*#__PURE__*/
+
         /* $FlowFixMe(>=0.89.0 site=react_native_fb) This comment suppresses an
          * error found when Flow v0.89 was deployed. To see the error, delete
          * this comment and run Flow. */
@@ -1508,10 +1555,13 @@ function (_React$Component) {
       );
     }
 
-    return React.createElement(CellRendererComponent, _extends({}, this.props, {
-      style: cellStyle,
-      onLayout: onLayout
-    }), element, itemSeparator);
+    return (
+      /*#__PURE__*/
+      React.createElement(CellRendererComponent, _extends({}, this.props, {
+        style: cellStyle,
+        onLayout: onLayout
+      }), element, itemSeparator)
+    );
   };
 
   return CellRenderer;

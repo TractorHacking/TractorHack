@@ -24,14 +24,19 @@ var cssFunction = function () {
   return 'env';
 }();
 
-var SafeAreaView = forwardRef(function (props, ref) {
+var SafeAreaView =
+/*#__PURE__*/
+forwardRef(function (props, ref) {
   var style = props.style,
       rest = _objectWithoutPropertiesLoose(props, ["style"]);
 
-  return React.createElement(View, _extends({}, rest, {
-    ref: ref,
-    style: StyleSheet.compose(styles.root, style)
-  }));
+  return (
+    /*#__PURE__*/
+    React.createElement(View, _extends({}, rest, {
+      ref: ref,
+      style: StyleSheet.compose(styles.root, style)
+    }))
+  );
 });
 SafeAreaView.displayName = 'SafeAreaView';
 var styles = StyleSheet.create({

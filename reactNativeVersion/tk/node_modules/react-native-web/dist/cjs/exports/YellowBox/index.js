@@ -19,7 +19,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 function YellowBox(props) {
-  return _react.default.createElement(_UnimplementedView.default, props);
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_UnimplementedView.default, props)
+  );
 }
 
 YellowBox.ignoreWarnings = function () {};
