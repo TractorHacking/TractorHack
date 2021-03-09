@@ -5,7 +5,7 @@ import Tractor from '../ui/TractorImg.js';
 import VehicleInfo from './VehicleInformation.js';
 import HeaderBar from '../ui/HeaderBar.js';
 import TitleCard from '../ui/TitleCard.js';
-
+import TitleCardNoButton from '../ui/TitleCardNoButton.js';
 
 class ConnectedRoot extends React.Component {
   constructor(props) {
@@ -13,6 +13,16 @@ class ConnectedRoot extends React.Component {
     this.tractorName = "Tractor Name Here";
     
   }
+  titleCard2() {
+    
+    return (
+      <View>
+        <VehicleInfo />
+      </View>
+    );
+  }
+
+
   
   titleCard() {
     
@@ -39,7 +49,9 @@ class ConnectedRoot extends React.Component {
             content = {() => this.titleCard()}
             backButtonAction = {() => this.props.changeAppState('bluetooth')}
           />
-          <VehicleInfo />
+	   <TitleCardNoButton
+            content = {() => this.titleCard2()}
+          />
         </View>
         <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
