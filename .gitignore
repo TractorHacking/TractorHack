@@ -9,5 +9,24 @@ reactNativeVersion/tk/npm-debug.*
 *.orig.*
 web-build/
 
+# Node
+node_modules
+*.log
+.nvm
+/bots/node_modules/
+package-lock.json
+
+# Visual studio
+.vscode
+.vs
+
+# Expo
+.expo
+__generated__
+web-build
+
+# Watchman
+.watchmanconfig
+
 # macOS
 .DS_Store

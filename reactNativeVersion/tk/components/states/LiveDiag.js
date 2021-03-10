@@ -105,13 +105,22 @@ class LiveDiag extends React.Component {
     });
   }
   
+  tcContent() {
+    return (
+      <View>
+        <Text> {this.props.tractorName} </Text>
+        <Tractor />
+      </View>
+    );
+  }
+  
   render() {
     return (
       <View>
         <HeaderBar title = "Live Diagnostic Data" />
         <View style = {styles.centerView}>
           <TitleCard 
-            content = {() => <Tractor />} 
+            content = {() => this.tcContent()} 
             backButtonAction = {() => {this.props.changeAppState('connected')}}
           />
           <Button title = "Disconnect"

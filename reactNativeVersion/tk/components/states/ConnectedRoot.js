@@ -5,14 +5,23 @@ import Tractor from '../ui/TractorImg.js';
 import VehicleInfo from './VehicleInformation.js';
 import HeaderBar from '../ui/HeaderBar.js';
 import TitleCard from '../ui/TitleCard.js';
-
+import TitleCardNoButton from '../ui/TitleCardNoButton.js';
 
 class ConnectedRoot extends React.Component {
   constructor(props) {
     super(props);
-    this.tractorName = "Tractor Name Here";
     
   }
+  titleCard2() {
+    
+    return (
+      <View>
+        <VehicleInfo />
+      </View>
+    );
+  }
+
+
   
   titleCard() {
     
@@ -20,9 +29,9 @@ class ConnectedRoot extends React.Component {
       <View>
         <TextInput
           style = {styles.inpTracName}
-          onChangeText = {() => null}
-          defaultView = {this.tractorName}
-          placeholder = "Tractor Name Here"
+          onChangeText = {this.props.changeTractorName}
+          defaultView = {this.props.tractorName}
+          placeholder = {this.props.tractorName}
           clearButtonMode = "always"
         />
         <Tractor />
@@ -39,7 +48,9 @@ class ConnectedRoot extends React.Component {
             content = {() => this.titleCard()}
             backButtonAction = {() => this.props.changeAppState('bluetooth')}
           />
-          <VehicleInfo />
+	   <TitleCardNoButton
+            content = {() => this.titleCard2()}
+          />
         </View>
         <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
