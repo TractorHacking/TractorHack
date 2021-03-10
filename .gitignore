@@ -20,6 +20,11 @@ package-lock.json
 .vscode
 .vs
 
+# Expo
+.expo
+__generated__
+web-build
+
 # Watchman
 .watchmanconfig
 
