@@ -11,12 +11,17 @@ class StateController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      appState : 'splash'
+      appState : 'splash',
+      tractorName : "Tractor Name Here..."
     }
   }
   
   changeAppState = (newState) => {
     this.setState({appState : newState});
+  }
+  
+  changeTractorName = (tName) => {
+    this.setState({tractorName : tName});
   }
   
   render() {
@@ -33,12 +38,19 @@ class StateController extends React.Component {
         break;
       case 'connected' :
         return (
-          <ConnectedRoot changeAppState = {this.changeAppState} />
+          <ConnectedRoot 
+            changeAppState = {this.changeAppState}
+            changeTractorName = {this.changeTractorName}
+            tractorName = {this.state.tractorName}
+          />
         );
         break;
       case 'live' :
         return (
-          <LiveDiag changeAppState = {this.changeAppState} />
+          <LiveDiag 
+            changeAppState = {this.changeAppState}
+            tractorName = {this.state.tractorName}
+          />
         );
         break;
       case 'errorsnap' :

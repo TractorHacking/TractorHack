@@ -10,7 +10,6 @@ import TitleCardNoButton from '../ui/TitleCardNoButton.js';
 class ConnectedRoot extends React.Component {
   constructor(props) {
     super(props);
-    this.tractorName = "Tractor Name Here";
     
   }
   titleCard2() {
@@ -30,9 +29,9 @@ class ConnectedRoot extends React.Component {
       <View>
         <TextInput
           style = {styles.inpTracName}
-          onChangeText = {() => null}
-          defaultView = {this.tractorName}
-          placeholder = "Tractor Name Here"
+          onChangeText = {this.props.changeTractorName}
+          defaultView = {this.props.tractorName}
+          placeholder = {this.props.tractorName}
           clearButtonMode = "always"
         />
         <Tractor />
