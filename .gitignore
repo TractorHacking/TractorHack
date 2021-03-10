@@ -8,7 +8,20 @@ reactNativeVersion/tk/npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-node_modules/
+
+# Node
+node_modules
+*.log
+.nvm
+/bots/node_modules/
+package-lock.json
+
+# Visual studio
+.vscode
+.vs
+
+# Watchman
+.watchmanconfig
 
 # macOS
 .DS_Store
