@@ -53,11 +53,6 @@ class StateController extends React.Component {
           />
         );
         break;
-      case 'errorsnap' :
-        return (
-          <ErrorSnapshot changeAppState = {this.changeAppState} />
-        );
-        break;
     };
   }
 }

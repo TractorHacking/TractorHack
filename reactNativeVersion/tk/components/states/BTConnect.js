@@ -71,7 +71,7 @@ class BTConnect extends React.Component {
         return (
           <View>
             <HeaderBar title = "Failed To Connect" />
-            <View style = {styles.padded}>
+            <View style = {styles.paddedCenter}>
               <Button title = "Back"
                 onPress = {() => {this.props.changeAppState('splash')}}
               />

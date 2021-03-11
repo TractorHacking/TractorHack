@@ -5,6 +5,7 @@ import DiagFormatter from '../ui/DiagFormatter';
 import Tractor from '../ui/TractorImg.js';
 import HeaderBar from '../ui/HeaderBar.js';
 import TitleCard from '../ui/TitleCard.js';
+import TitleCardNoButton from '../ui/TitleCardNoButton.js';
 
 class LiveDiag extends React.Component {
   constructor(props) {
@@ -123,10 +124,11 @@ class LiveDiag extends React.Component {
             content = {() => this.tcContent()} 
             backButtonAction = {() => {this.props.changeAppState('connected')}}
           />
+
+          <TitleCardNoButton content = {() => <DiagFormatter data = {this.state.data}/>} />
           <Button title = "Disconnect"
-                  onPress = {() => {this.props.changeAppState('splash')}}
+            onPress = {() => {this.props.changeAppState('splash')}}
           />
-          <DiagFormatter data = {this.state.data} />
         </View>
       </View>
     );

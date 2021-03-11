@@ -6,6 +6,7 @@ import VehicleInfo from './VehicleInformation.js';
 import HeaderBar from '../ui/HeaderBar.js';
 import TitleCard from '../ui/TitleCard.js';
 import TitleCardNoButton from '../ui/TitleCardNoButton.js';
+import ErrorSnapshot from './ErrorSnapshot.js';
 
 class ConnectedRoot extends React.Component {
   constructor(props) {
@@ -21,7 +22,11 @@ class ConnectedRoot extends React.Component {
     );
   }
 
-
+  historyCard() {
+    return (
+      <ErrorSnapshot />
+    );
+  }
   
   titleCard() {
     
@@ -35,6 +40,11 @@ class ConnectedRoot extends React.Component {
           clearButtonMode = "always"
         />
         <Tractor />
+        <View style = {styles.paddedCenter}>
+          <Button title = "Live Diag Data"
+                  onPress = {() => {this.props.changeAppState('live')}}
+          />
+        </View>
       </View>
     );
   }
@@ -48,23 +58,16 @@ class ConnectedRoot extends React.Component {
             content = {() => this.titleCard()}
             backButtonAction = {() => this.props.changeAppState('bluetooth')}
           />
-	   <TitleCardNoButton
+          <TitleCardNoButton
             content = {() => this.titleCard2()}
+          />
+          <TitleCardNoButton
+            content = {() => this.historyCard()}
           />
         </View>
         <View style = {styles.paddedCenter}>
           <Button title = "Disconnect"
                   onPress = {() => {this.props.changeAppState('splash')}}
-          />
-        </View>
-        <View style = {styles.paddedCenter}>
-          <Button title = "Live Diag Data"
-                  onPress = {() => {this.props.changeAppState('live')}}
-          />
-        </View>
-        <View style = {styles.paddedCenter}>
-          <Button title = "Diagnostic History"
-                  onPress = {() => {this.props.changeAppState('errorsnap')}}
           />
         </View>
       </View>
