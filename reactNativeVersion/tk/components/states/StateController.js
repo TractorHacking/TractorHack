@@ -6,6 +6,8 @@ import LiveDiag from './LiveDiag.js';
 import ErrorSnapshot from './ErrorSnapshot.js';
 import styles from '../ui/Styles.js';
 import Splash from './Splash.js';
+import Home from './Home.js';
+import History from './History.js';
 
 class StateController extends React.Component {
   constructor(props) {
@@ -31,6 +33,15 @@ class StateController extends React.Component {
           <Splash changeAppState = {this.changeAppState} />
         );
         break;
+      case 'home' :
+        return (
+          <Home />
+        );
+      case 'history' :
+        return (
+          <History />
+      );
+      break;
       case 'bluetooth' :
         return (
           <BTConnect changeAppState = {this.changeAppState} />

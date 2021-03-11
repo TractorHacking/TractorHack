@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
 
     justifyContent: 'space-between',
+    maxWidth: '420px',
+    alignSelf: 'center'
   },
   orange: {
     color: 'orange'
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
   },
   gradImg : {
       borderBottomRightRadius : 30,
-      borderBottomLeftRadius : 30
+      borderBottomLeftRadius : 30,
  //   flex : 1,
 //    resizeMethod : 'resize',
  //   justifyContent : 'center'

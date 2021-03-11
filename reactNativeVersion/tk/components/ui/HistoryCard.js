@@ -1,7 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button, Alert, Image } from 'react-native';
+import { Text, View, StyleSheet, Button, Image } from 'react-native';
 
-class HomeCardHistory extends React.Component {
+class HistoryCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return(
       <View style={styles.centerCard}>
@@ -17,7 +21,6 @@ class HomeCardHistory extends React.Component {
         </Text>
         <Button
           title="View History"
-          onPress={() => Alert.alert('You pressed a button')}
           color="#1FA2DC"
         />
       </View>
@@ -50,4 +53,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeCardHistory;
+export default HistoryCard;
