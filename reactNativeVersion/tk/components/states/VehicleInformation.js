@@ -38,7 +38,7 @@ class VehicleInformation extends React.Component {
           catTitle : "Vehicle Information",
           group : [
             {
-              title : " Make", 
+              title : " Make:", 
               value : received.make
             },
             {
