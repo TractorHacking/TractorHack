@@ -19,11 +19,11 @@ class VehicleInformation extends React.Component {
   fetchData() {
     let x =
       {
-        make : "             John Deere",
-        model : "                   504 SE",
-        year : "                         1998",
-        engine : "     2.9L 3 Cylinder",
-        vin : "                F25453212",
+        make : "John Deere",
+        model : "504 SE",
+        year : "1998",
+        engine : "2.9L 3 Cylinder",
+        vin : "F25453212",
       };
     
     return x;
@@ -38,23 +38,23 @@ class VehicleInformation extends React.Component {
           catTitle : "Vehicle Information",
           group : [
             {
-              title : " Make:							     ", 
+              title : " Make", 
               value : received.make
             },
             {
-              title : "Model:							     ",
+              title : "Model:",
               value : received.model
             },
             {
-              title : "Year:							    ",
+              title : "Year:",
               value : received.year
             },
 	   {
-   	     title : "Engine:							      ",
+   	     title : "Engine:",
 	     value : received.engine
 	   },
 	   {
-	     title: "VIN:				  				  ",
+	     title: "VIN:",
 	     value : received.vin
 	   }
           ]
