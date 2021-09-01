@@ -9,3 +9,6 @@ _members_
 * Jonathan De La Torre
 * Tommy Bergmann
 * Brandon Chen
+
+_Advisor and Guide_
+* Morgan Swanson

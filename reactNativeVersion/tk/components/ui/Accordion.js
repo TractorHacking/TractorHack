@@ -78,7 +78,7 @@ class Accordion extends React.Component {
   }
 
   changeTitleColor(cat) {
-    cat.status += 1;
+    cat.status = (cat.status + 1) % 2;
     this.makeCatTitle(cat);
   }
 
@@ -88,7 +88,7 @@ class Accordion extends React.Component {
     if (this.state.expanded) {
       cat.group.forEach((gp, listIndex) => {group.push(this.singleGroup(gp, listIndex))});
       if (cat.status != null)
-        group.push(<Button key = {cat.catTitle + "b" + group.length} title = {this.state.arr[this.state.text % 2]} onPress = {() => this.setState({text: this.state.text+1})}/>);
+        group.push(<Button key = {cat.catTitle + "b" + group.length} title = {this.state.arr[this.state.text % 2]} onPress = {() => this.setState({text: (this.state.text+1) % 2})}/>);
     }
     else {
       group.push(<View key = {cat.catTitle + "empty"}></View>);
